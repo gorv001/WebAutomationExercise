@@ -16,7 +16,7 @@ public class LoginTest extends BaseTest {
 
 
 
-    @Test(enabled = false, dataProvider = "registrationData",dataProviderClass = TestData.class)
+    @Test(enabled = true, dataProvider = "registrationData",dataProviderClass = TestData.class)
     public void testRegistration(String username,String email, String password) {
         LOGGER.info("TestCase 01: First Test Case is Started");
         test.info("Starting Registration test");
@@ -29,7 +29,7 @@ public class LoginTest extends BaseTest {
         test.pass("Registration was successful");
     }
 
-    @Test(enabled = false, dataProvider = "registrationData",dataProviderClass = TestData.class )
+    @Test(enabled = true, dataProvider = "registrationData",dataProviderClass = TestData.class )
     public void testLogIn(String username,String email, String password) {
         LOGGER.info("TestCase 02: LogoIn Test Case is Started");
         test.info("Starting LogIn test");
@@ -43,7 +43,7 @@ public class LoginTest extends BaseTest {
     }
 
 
-    @Test(enabled = false,dataProvider = "registrationData",dataProviderClass = TestData.class )
+    @Test(enabled = true,dataProvider = "registrationData",dataProviderClass = TestData.class )
     public void testLogInWithInCorrectCredentials(String username,String email, String password) {
         LOGGER.info("TestCase 03: LogoIn with incorrect credentials Test Case is Started");
         test.info("Starting LogInWithInCorrectCredentials test");
@@ -57,7 +57,7 @@ public class LoginTest extends BaseTest {
     }
 
 
-    @Test(enabled = false,dataProvider = "registrationData",dataProviderClass = TestData.class )
+    @Test(enabled = true,dataProvider = "registrationData",dataProviderClass = TestData.class )
     public void testLogOut(String username,String email, String password) {
         LOGGER.info("TestCase 04: Logout Test Case is Started");
         test.info("Starting LogOut test");
