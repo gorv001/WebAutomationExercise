@@ -1,13 +1,12 @@
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.ITestResult;
+import org.testng.annotations.*;
+
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
 
 import java.lang.reflect.Method;
 
@@ -24,26 +23,43 @@ public class BaseTest {
     @BeforeMethod
     public void setUp(Method method) {
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+
+        // Setup ChromeOptions for CI/CD (headless)
+        ChromeOptions options = new ChromeOptions();
+        if (System.getenv("CI") != null) {  // Only for CI environments like GitHub Actions
+            options.addArguments("--headless=new", "--no-sandbox", "--disable-gpu", "--disable-dev-shm-usage");
+        }
+
+        driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.get("https://www.automationexercise.com/");
+
         test = extent.createTest(method.getName());
     }
 
-    @AfterMethod(enabled = true, alwaysRun = true)
+    @AfterMethod(alwaysRun = true)
     public void tearDown(ITestResult result) {
-        if (result.getStatus() == ITestResult.FAILURE) {
-            test.fail(result.getThrowable());
-        } else if (result.getStatus() == ITestResult.SUCCESS) {
-            test.pass("Test passed");
-        } else if (result.getStatus() == ITestResult.SKIP) {
-            test.skip("Test skipped");
+        if (test != null) {
+            switch (result.getStatus()) {
+                case ITestResult.FAILURE:
+                    test.fail(result.getThrowable());
+                    break;
+                case ITestResult.SUCCESS:
+                    test.pass("Test passed");
+                    break;
+                case ITestResult.SKIP:
+                    test.skip("Test skipped: " + result.getThrowable());
+                    break;
+            }
         }
-        driver.quit();
-    }
-    @AfterSuite
-    public void tearDownReport() {
-        extent.flush();  // Generate the report
+
+        if (driver != null) {
+            driver.quit();
+        }
     }
 
+    @AfterSuite
+    public void tearDownReport() {
+        extent.flush();
+    }
 }
