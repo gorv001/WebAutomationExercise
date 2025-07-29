@@ -34,10 +34,10 @@ jobs:
 
       - name: Upload Extent Report artifact
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: Extent-Report
-          path: test-output/extent-report/ExtentReport.html
+          path: test-output/ExtentReport.html
 
       - name: Send Email with Extent Report
         if: always()
