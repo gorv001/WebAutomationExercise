@@ -37,7 +37,7 @@ public class BaseTest {
         test = extent.createTest(method.getName());
     }
 
-    @AfterMethod(enabled = false)
+    @AfterMethod(enabled = true)
     public void tearDown(ITestResult result) {
         if (test != null) {
             switch (result.getStatus()) {

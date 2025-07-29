@@ -227,18 +227,20 @@ public class LoginPage {
 
     public boolean verifyHomePage() {
         try {
-         WebElement homePage=driver.findElement(homeButton);
-         if (homePage.isDisplayed()) {
-             return true;
-             LOGGER.info(" Home page is visible successfully");
-         }else {
-             return false;
-             LOGGER.info("❌ Home page is not visible");
-         }
+            WebElement homePage = driver.findElement(homeButton);
+            if (homePage.isDisplayed()) {
+                LOGGER.info(" Home page is visible successfully");
+                return true;
 
-        }catch (Exception e) {
-            e.printStackTrace();
+            } else {
+                LOGGER.info("❌ Home page is not visible");
+                return false;
+            }
+
+        } catch (Exception e) {
+            e.getMessage();
         }
+        return false;
     }
 
     public void contactUsForm(String name,String email) {
