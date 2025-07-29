@@ -1,8 +1,5 @@
 import org.apache.logging.log4j.LogManager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -48,6 +45,24 @@ public class LoginPage {
     private final By loginPasswordButton = By.name("password");
     private final By loginSubmitButton = By.xpath("//button[text()='Login']");
     private final By logoutButton = By.xpath("//a[@href='/logout']");
+    private final By homeButton = By.xpath("//a[@style='color: orange;']");
+    private final By newUserSignUpText = By.xpath("//h2[text()='New User Signup!']");
+    private final By acountHolderName = By.xpath("//i[@class='fa fa-user']/../b");
+    private final By deleteAcountButton = By.xpath("//a[contains(text(),' Delete Account')]");
+    private final By deleteAcountText = By.xpath("//h2/b[contains(text(),'Account Deleted!')]");
+    private final By deleteContinueButton = By.xpath("//a[@data-qa='continue-button']");
+    private final By verifyLoginToYourAcountText = By.xpath("//div[@class='login-form']/h2");
+    private final By contactUsButton = By.xpath("//a[@href='/contact_us']");
+    private final By getInTouchText = By.xpath("//div[@class='col-sm-12']/h2");
+    private final By contactUsNameInput = By.xpath("//input[@placeholder='Name']");
+    private final By contactUsEmailInput = By.xpath("//input[@name='email']");
+    private final By contactUsSubjectInput = By.xpath("//input[@name='subject']");
+    private final By contactUsMessageInput = By.id("message");
+    private final By contactUsUploadFile = By.xpath("//input[@name='upload_file']");
+    private final By contactUsSubmit = By.xpath("//input[@name='submit']");
+    private final By contactUsSubmitSuccessMessage = By.xpath("//div[@class='status alert alert-success']");
+    private final By contactUsHomeButton = By.xpath("//span[contains(text(),'Home')]");
+
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
@@ -57,14 +72,15 @@ public class LoginPage {
             LOGGER.info(" Starting registration for:"  + username);
         try {
             waitUntilVisible(signUpLoginButton).click();
+            verifyNewUserSignUpPage();
             driver.findElement(signUpNameField).sendKeys(username);
             driver.findElement(emailInputField).sendKeys(email);
             driver.findElement(signUpButton).click();
             String formText = waitUntilVisible(formTextElement).getText();
             if (formText.contains("ENTER ACCOUNT INFORMATION")) {
-                LOGGER.info("✅ Registration form loaded for: " + username);
+                LOGGER.info("ENTER ACCOUNT INFORMATION is visible");
             } else {
-                LOGGER.info("❌ Registration form did not load.");
+                LOGGER.info("❌ ENTER ACCOUNT INFORMATION is visible");
                 return;
             }
             driver.findElement(titleButton).click();
@@ -86,14 +102,67 @@ public class LoginPage {
             waitUntilVisible(createAccountButton).click();
             String acountCreatedText = waitUntilVisible(acountCreatedButton).getText();
             if (acountCreatedText.contains("ACCOUNT CREATED!")) {
-                LOGGER.info("🎉 Registration details entered successfully for: " + username);
+                LOGGER.info("🎉 ACCOUNT IS CREATED! for: " + username);
             }else {
-                LOGGER.info("Registration failed for: " + username);
+                LOGGER.info("❌ Acount creation failed for: " + username);
             }
             waitUntilVisible(continueButton).click();
-
+           verifyUserLogedIn();
+           deleteAcount();
+           verifyAcountDeletedText();
+           waitUntilVisible(deleteContinueButton).click();
         } catch (Exception e) {
             LOGGER.info("❗ Error during registration: " + e.getMessage());
+        }
+    }
+
+    private void verifyUserLogedIn() {
+        try {
+            WebElement AccountHolderName= waitUntilVisible(acountHolderName);
+            if(AccountHolderName.isDisplayed()){
+                LOGGER.info(" Logged in as "+AccountHolderName.getText());
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void verifyAcountDeletedText() {
+        try {
+            if(driver.findElement(deleteAcountText).isDisplayed()){
+                LOGGER.info("Account deleted text is visible");
+            }else {
+                LOGGER.info("Account deleted text is not visible");
+            }
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void deleteAcount() {
+        try {
+            WebElement deletebutton = driver.findElement(deleteAcountButton);
+            if (deletebutton.isDisplayed()) {
+                driver.findElement(deleteAcountButton).click();
+            } else {
+                LOGGER.info("Delete account button is not visible");
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    private void verifyNewUserSignUpPage() {
+        try {
+            WebElement newUserSignUpButton = driver.findElement(newUserSignUpText);
+            if(newUserSignUpButton.isDisplayed()){
+                LOGGER.info("You are on registration page");
+            }else{
+                LOGGER.info("❌ You are not on registration page");
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -105,9 +174,9 @@ public class LoginPage {
         return element;
     }
     public void registerNewUser(String username, String email) {
-        LOGGER.info(" Starting registration for:"  + username);
         try {
             waitUntilVisible(signUpLoginButton).click();
+            verifyNewUserSignUpPage();
             driver.findElement(signUpNameField).sendKeys(username);
             driver.findElement(emailInputField).sendKeys(email);
             driver.findElement(signUpButton).click();
@@ -129,14 +198,79 @@ public class LoginPage {
     public void logIn(String email, String password) {
         try{
         LOGGER.info(" Starting putting the loginCredentials:"  + email);
+        verifyHomePage();
         waitUntilVisible(signUpLoginButton).click();
+        verifyLoginToYourAcountText();
         waitUntilVisible(loginEmailButton).sendKeys(email);
         waitUntilVisible(loginPasswordButton).sendKeys(password);
         waitUntilVisible(loginSubmitButton).click();
+
+
         }catch (Exception e) {
-            LOGGER.info("Something went wrong...in login method");
+            LOGGER.info("❌ Something went wrong...in login method");
         }
 
+    }
+
+    private void verifyLoginToYourAcountText() {
+        try {
+        WebElement verifylogintoyourAcountText = waitUntilVisible(verifyLoginToYourAcountText);
+        if (verifylogintoyourAcountText.isDisplayed()) {
+        LOGGER.info(" Login to your acount text is visible");
+        }else {
+            LOGGER.info("Login to your acount text is not visible");
+        }
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void verifyHomePage() {
+        try {
+         WebElement homePage=driver.findElement(homeButton);
+         if (homePage.isDisplayed()) {
+             LOGGER.info(" Home page is visible successfully");
+         }else {
+             LOGGER.info("❌ Home page is not visible");
+         }
+
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void contactUsForm(String name,String email) {
+        try {
+            waitUntilVisible(contactUsButton).click();
+            verifyContactUsPage();
+            waitUntilVisible(contactUsNameInput).sendKeys(name);
+            waitUntilVisible(contactUsEmailInput).sendKeys(email);
+            waitUntilVisible(contactUsSubjectInput).sendKeys("For Testing purposes");
+            waitUntilVisible(contactUsMessageInput).sendKeys("This field is for automation test script");
+            waitUntilVisible(contactUsUploadFile).sendKeys("C:\\Users\\gourav.kumar_oneguar\\Pictures\\Screenshots\\10001.txt");
+            waitUntilVisible(contactUsSubmit).click();
+            Alert alert = driver.switchTo().alert();
+            alert.accept();
+           if(waitUntilVisible(contactUsSubmitSuccessMessage).isDisplayed()){
+               LOGGER.info(" Contact us form is submitted successfully");
+           }else{
+               LOGGER.info(" Contact us form is not submited");
+           }
+           waitUntilVisible(contactUsHomeButton).click();
+           verifyHomePage();
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void verifyContactUsPage() {
+        WebElement getInTouchTextButton = driver.findElement(getInTouchText);
+        if(getInTouchTextButton.isDisplayed()){
+            LOGGER.info(" Contact us page is visible");
+        }else {
+            LOGGER.info(" Contact us page is not visible");
+        }
     }
 }
 

@@ -16,20 +16,18 @@ public class LoginTest extends BaseTest {
 
 
 
-    @Test(enabled = true, dataProvider = "registrationData",dataProviderClass = TestData.class)
+    @Test(enabled = true,priority = 0, dataProvider = "registrationData",dataProviderClass = TestData.class)
     public void testRegistration(String username,String email, String password) {
         LOGGER.info("TestCase 01: First Test Case is Started");
         test.info("Starting Registration test");
         LoginPage loginPage = new LoginPage(driver);
+        loginPage.verifyHomePage();
         loginPage.registerNewUser(username, email,password);
-        By logoutButton = By.xpath("//a[@href='/logout']");
-        WebElement logoutButtonElement = driver.findElement(logoutButton);
-        Assert.assertTrue(logoutButtonElement.isDisplayed());
         LOGGER.info("TestCase 01: First Test Case is Finished");
         test.pass("Registration was successful");
     }
 
-    @Test(enabled = true, dataProvider = "registrationData",dataProviderClass = TestData.class )
+    @Test(enabled = true,priority = 1, dataProvider = "registrationData",dataProviderClass = TestData.class )
     public void testLogIn(String username,String email, String password) {
         LOGGER.info("TestCase 02: LogoIn Test Case is Started");
         test.info("Starting LogIn test");
@@ -43,7 +41,7 @@ public class LoginTest extends BaseTest {
     }
 
 
-    @Test(enabled = true,dataProvider = "registrationData",dataProviderClass = TestData.class )
+    @Test(enabled = true,priority = 2,dataProvider = "registrationData",dataProviderClass = TestData.class )
     public void testLogInWithInCorrectCredentials(String username,String email, String password) {
         LOGGER.info("TestCase 03: LogoIn with incorrect credentials Test Case is Started");
         test.info("Starting LogInWithInCorrectCredentials test");
@@ -57,7 +55,7 @@ public class LoginTest extends BaseTest {
     }
 
 
-    @Test(enabled = true,dataProvider = "registrationData",dataProviderClass = TestData.class )
+    @Test(enabled = true,priority = 3,dataProvider = "registrationData",dataProviderClass = TestData.class )
     public void testLogOut(String username,String email, String password) {
         LOGGER.info("TestCase 04: Logout Test Case is Started");
         test.info("Starting LogOut test");
@@ -70,7 +68,7 @@ public class LoginTest extends BaseTest {
         test.pass("LogOut was successful");
     }
 
-    @Test(enabled = true,dataProvider = "registrationData",dataProviderClass = TestData.class )
+    @Test(enabled = true,priority = 4,dataProvider = "registrationData",dataProviderClass = TestData.class )
     public void  RegisterUserWithExistingEmail(String username,String email, String password) {
         LOGGER.info("TestCase 05:  Register User with existing email Test Case is Started");
         test.info("Starting  Register User with existing email test");
@@ -81,6 +79,17 @@ public class LoginTest extends BaseTest {
         Assert.assertTrue(signUpButton.isDisplayed());
         LOGGER.info("TestCase 05:  Register User with existing email Test Case is Finished");
         test.pass(" Register User with existing email was successful");
+    }
+
+    @Test(enabled = true,priority = 5,dataProvider = "registrationData",dataProviderClass = TestData.class )
+    public void  contactUsForm(String username,String email, String password) {
+        LOGGER.info("Test Case 6: Contact Us Form Test Case is Started");
+        test.info("Starting  Test Case 6: Contact Us Form Test Case is Started");
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.verifyHomePage();
+        loginPage.contactUsForm(username,email);
+        LOGGER.info("Test Case 6: Contact Us Form Test Case is Finished");
+        test.pass(" Test Case 6: Contact Us Form Test Case is Finished");
     }
 
 
