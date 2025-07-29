@@ -225,12 +225,14 @@ public class LoginPage {
         }
     }
 
-    public void verifyHomePage() {
+    public boolean verifyHomePage() {
         try {
          WebElement homePage=driver.findElement(homeButton);
          if (homePage.isDisplayed()) {
+             return true;
              LOGGER.info(" Home page is visible successfully");
          }else {
+             return false;
              LOGGER.info("❌ Home page is not visible");
          }
 

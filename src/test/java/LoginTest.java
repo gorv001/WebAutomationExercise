@@ -23,6 +23,7 @@ public class LoginTest extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.verifyHomePage();
         loginPage.registerNewUser(username, email,password);
+        Assert.assertTrue(loginPage.verifyHomePage(),"The registration is failed");
         LOGGER.info("TestCase 01: First Test Case is Finished");
         test.pass("Registration was successful");
     }
@@ -88,6 +89,7 @@ public class LoginTest extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.verifyHomePage();
         loginPage.contactUsForm(username,email);
+        Assert.assertTrue(loginPage.verifyHomePage());
         LOGGER.info("Test Case 6: Contact Us Form Test Case is Finished");
         test.pass(" Test Case 6: Contact Us Form Test Case is Finished");
     }
