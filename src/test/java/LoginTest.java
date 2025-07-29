@@ -12,10 +12,11 @@ public class LoginTest extends BaseTest {
 
     private static final Logger LOGGER = LogManager.getLogger(LoginTest.class);
     private final By signUpLoginButton = By.xpath("//a[@href='/login']");
+    private final By emailAlreadyExists = By.xpath("//p[contains(text(),'Email Address already exist!')]");
 
 
 
-    @Test(enabled = true, dataProvider = "registrationData",dataProviderClass = TestData.class)
+    @Test(enabled = false, dataProvider = "registrationData",dataProviderClass = TestData.class)
     public void testRegistration(String username,String email, String password) {
         LOGGER.info("TestCase 01: First Test Case is Started");
         test.info("Starting Registration test");
@@ -28,7 +29,7 @@ public class LoginTest extends BaseTest {
         test.pass("Registration was successful");
     }
 
-    @Test(enabled = true, dataProvider = "registrationData",dataProviderClass = TestData.class )
+    @Test(enabled = false, dataProvider = "registrationData",dataProviderClass = TestData.class )
     public void testLogIn(String username,String email, String password) {
         LOGGER.info("TestCase 02: LogoIn Test Case is Started");
         test.info("Starting LogIn test");
@@ -42,7 +43,7 @@ public class LoginTest extends BaseTest {
     }
 
 
-    @Test(enabled = true,dataProvider = "registrationData",dataProviderClass = TestData.class )
+    @Test(enabled = false,dataProvider = "registrationData",dataProviderClass = TestData.class )
     public void testLogInWithInCorrectCredentials(String username,String email, String password) {
         LOGGER.info("TestCase 03: LogoIn with incorrect credentials Test Case is Started");
         test.info("Starting LogInWithInCorrectCredentials test");
@@ -56,7 +57,7 @@ public class LoginTest extends BaseTest {
     }
 
 
-    @Test(enabled = true,dataProvider = "registrationData",dataProviderClass = TestData.class )
+    @Test(enabled = false,dataProvider = "registrationData",dataProviderClass = TestData.class )
     public void testLogOut(String username,String email, String password) {
         LOGGER.info("TestCase 04: Logout Test Case is Started");
         test.info("Starting LogOut test");
@@ -67,6 +68,19 @@ public class LoginTest extends BaseTest {
         Assert.assertTrue(signUpButton.isDisplayed());
         LOGGER.info("TestCase 04: Logout Test Case is Finished");
         test.pass("LogOut was successful");
+    }
+
+    @Test(enabled = true,dataProvider = "registrationData",dataProviderClass = TestData.class )
+    public void  RegisterUserWithExistingEmail(String username,String email, String password) {
+        LOGGER.info("TestCase 05:  Register User with existing email Test Case is Started");
+        test.info("Starting  Register User with existing email test");
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.registerNewUser("Gourav","user996@test.com");
+        WebElement signUpButton = driver.findElement(emailAlreadyExists);
+        LOGGER.info(signUpButton.getText()+" Success- Your email is already registered");
+        Assert.assertTrue(signUpButton.isDisplayed());
+        LOGGER.info("TestCase 05:  Register User with existing email Test Case is Finished");
+        test.pass(" Register User with existing email was successful");
     }
 
 

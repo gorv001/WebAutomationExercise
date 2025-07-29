@@ -11,7 +11,9 @@ public class ExtentManager {
             extent = new ExtentReports();
             extent.attachReporter(spark);
             extent.setSystemInfo("Framework", "Selenium TestNG");
-            extent.setSystemInfo("Tester", "YourName");
+            extent.setSystemInfo("Tester", "Gourav Kumar");
+            extent.setSystemInfo("App Name", "AutomationExercise");
+            extent.setSystemInfo("ReportsTo", "Manish Goyal");
         }
         return extent;
     }

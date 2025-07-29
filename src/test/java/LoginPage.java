@@ -96,12 +96,26 @@ public class LoginPage {
             LOGGER.info("❗ Error during registration: " + e.getMessage());
         }
     }
+
+
     public WebElement waitUntilVisible(By locator) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         scrollToElement(locator);
         return element;
     }
+    public void registerNewUser(String username, String email) {
+        LOGGER.info(" Starting registration for:"  + username);
+        try {
+            waitUntilVisible(signUpLoginButton).click();
+            driver.findElement(signUpNameField).sendKeys(username);
+            driver.findElement(emailInputField).sendKeys(email);
+            driver.findElement(signUpButton).click();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public void scrollToElement(By locator) {
         WebElement element = driver.findElement(locator);
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", element);
