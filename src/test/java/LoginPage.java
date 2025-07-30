@@ -251,7 +251,7 @@ public class LoginPage {
             waitUntilVisible(contactUsEmailInput).sendKeys(email);
             waitUntilVisible(contactUsSubjectInput).sendKeys("For Testing purposes");
             waitUntilVisible(contactUsMessageInput).sendKeys("This field is for automation test script");
-            waitUntilVisible(contactUsUploadFile).sendKeys("C:\\Users\\gourav.kumar_oneguar\\Pictures\\Screenshots\\10001.txt");
+            waitUntilVisible(contactUsUploadFile).sendKeys("/src/test/java/resources/test.png");
             waitUntilVisible(contactUsSubmit).click();
             Alert alert = driver.switchTo().alert();
             alert.accept();
