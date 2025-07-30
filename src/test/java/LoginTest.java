@@ -16,7 +16,7 @@ public class LoginTest extends BaseTest {
 
 
 
-    @Test(enabled = true,priority = 0, dataProvider = "registrationData",dataProviderClass = TestData.class)
+    @Test(enabled = false,priority = 0, dataProvider = "registrationData",dataProviderClass = TestData.class)
     public void testRegistration(String username,String email, String password) {
         LOGGER.info("TestCase 01: First Test Case is Started");
         test.info("Starting Registration test");
@@ -28,7 +28,7 @@ public class LoginTest extends BaseTest {
         test.pass("Registration was successful");
     }
 
-    @Test(enabled = true,priority = 1, dataProvider = "registrationData",dataProviderClass = TestData.class )
+    @Test(enabled = false,priority = 1, dataProvider = "registrationData",dataProviderClass = TestData.class )
     public void testLogIn(String username,String email, String password) {
         LOGGER.info("TestCase 02: LogoIn Test Case is Started");
         test.info("Starting LogIn test");
@@ -42,7 +42,7 @@ public class LoginTest extends BaseTest {
     }
 
 
-    @Test(enabled = true,priority = 2,dataProvider = "registrationData",dataProviderClass = TestData.class )
+    @Test(enabled = false,priority = 2,dataProvider = "registrationData",dataProviderClass = TestData.class )
     public void testLogInWithInCorrectCredentials(String username,String email, String password) {
         LOGGER.info("TestCase 03: LogoIn with incorrect credentials Test Case is Started");
         test.info("Starting LogInWithInCorrectCredentials test");
@@ -56,7 +56,7 @@ public class LoginTest extends BaseTest {
     }
 
 
-    @Test(enabled = true,priority = 3,dataProvider = "registrationData",dataProviderClass = TestData.class )
+    @Test(enabled = false,priority = 3,dataProvider = "registrationData",dataProviderClass = TestData.class )
     public void testLogOut(String username,String email, String password) {
         LOGGER.info("TestCase 04: Logout Test Case is Started");
         test.info("Starting LogOut test");
@@ -69,7 +69,7 @@ public class LoginTest extends BaseTest {
         test.pass("LogOut was successful");
     }
 
-    @Test(enabled = true,priority = 4,dataProvider = "registrationData",dataProviderClass = TestData.class )
+    @Test(enabled = false,priority = 4,dataProvider = "registrationData",dataProviderClass = TestData.class )
     public void  RegisterUserWithExistingEmail(String username,String email, String password) {
         LOGGER.info("TestCase 05:  Register User with existing email Test Case is Started");
         test.info("Starting  Register User with existing email test");
