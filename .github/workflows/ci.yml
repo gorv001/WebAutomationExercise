@@ -20,6 +20,10 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
+      - name: Install Firefox
+        run: |
+          sudo apt update
+          sudo apt install firefox -y
 
       - name: Cache Maven packages
         uses: actions/cache@v3
