@@ -29,6 +29,8 @@ public class BaseTest {
     @BeforeMethod
     @Parameters("browser")
     public void setUp( String browser, Method method,ITestResult result) {
+        System.out.println("Running " + method.getName() + " on " + browser +
+                " | Thread: " + Thread.currentThread().getId());
 
         if (browser.equalsIgnoreCase("chrome")) {
             WebDriverManager.chromedriver().setup();

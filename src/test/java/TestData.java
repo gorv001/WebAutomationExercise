@@ -8,8 +8,6 @@ public class TestData {
     public Object[][] getRegistrationData() {
         return new Object[][] {
                 {"GouravKumar", email, "password123"},
-//                {"Sourav kumar", "sorv.smith@example.com", "securePass"},
-//                {"Vikas Panchal", "vikas.test@example.com", "test@1234"}
         };
     }
 }
