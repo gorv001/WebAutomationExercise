@@ -3,6 +3,10 @@ import com.aventstack.extentreports.MediaEntityBuilder;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -23,15 +27,38 @@ public class BaseTest {
     }
 
     @BeforeMethod
-    public void setUp(Method method) {
-        WebDriverManager.chromedriver().setup();
-
-        ChromeOptions options = new ChromeOptions();
-        if (System.getenv("CI") != null) {
-            options.addArguments("--headless=new", "--no-sandbox", "--disable-gpu", "--disable-dev-shm-usage");
+    @Parameters("browser")
+    public void setUp(String browser,Method method) {
+//        WebDriverManager.chromedriver().setup();
+//
+//        ChromeOptions options = new ChromeOptions();
+//        if (System.getenv("CI") != null) {
+//            options.addArguments("--headless=new", "--no-sandbox", "--disable-gpu", "--disable-dev-shm-usage");
+//        }
+//
+//        driver = new ChromeDriver(options);
+        if (browser.equalsIgnoreCase("chrome")) {
+            WebDriverManager.chromedriver().setup();
+            ChromeOptions options = new ChromeOptions();
+            if (System.getenv("CI") != null) {
+                options.addArguments("--headless=new", "--no-sandbox", "--disable-gpu", "--disable-dev-shm-usage");
+            }
+            driver = new ChromeDriver(options);
+        } else if (browser.equalsIgnoreCase("firefox")) {
+            WebDriverManager.firefoxdriver().setup();
+            FirefoxOptions options = new FirefoxOptions();
+            if (System.getenv("CI") != null) {
+                options.addArguments("--headless");
+            }
+            driver = new FirefoxDriver(options);
+        } else if (browser.equalsIgnoreCase("edge")) {
+            WebDriverManager.edgedriver().setup();
+            EdgeOptions options = new EdgeOptions();
+            driver = new EdgeDriver(options);
+        } else {
+            throw new IllegalArgumentException("Unsupported browser: " + browser);
         }
 
-        driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.get("https://www.automationexercise.com/");
 
