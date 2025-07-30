@@ -29,7 +29,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test(enabled = true,priority = 1, dataProvider = "registrationData",dataProviderClass = TestData.class )
-    public void testLogIn() {
+    public void testLogIn(String username,String email, String password) {
         LOGGER.info("TestCase 02: LogoIn Test Case is Started");
         test.info("Starting LogIn test");
         LoginPage loginPage = new LoginPage(driver);
@@ -43,7 +43,7 @@ public class LoginTest extends BaseTest {
 
 
     @Test(enabled = true,priority = 2,dataProvider = "registrationData",dataProviderClass = TestData.class )
-    public void testLogInWithInCorrectCredentials() {
+    public void testLogInWithInCorrectCredentials(String username,String email, String password) {
         LOGGER.info("TestCase 03: LogoIn with incorrect credentials Test Case is Started");
         test.info("Starting LogInWithInCorrectCredentials test");
         LoginPage loginPage = new LoginPage(driver);
@@ -57,7 +57,7 @@ public class LoginTest extends BaseTest {
 
 
     @Test(enabled = true,priority = 3,dataProvider = "registrationData",dataProviderClass = TestData.class )
-    public void testLogOut() {
+    public void testLogOut(String username,String email, String password) {
         LOGGER.info("TestCase 04: Logout Test Case is Started");
         test.info("Starting LogOut test");
         LoginPage loginPage = new LoginPage(driver);
@@ -70,7 +70,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test(enabled = true,priority = 4,dataProvider = "registrationData",dataProviderClass = TestData.class )
-    public void  RegisterUserWithExistingEmail() {
+    public void  RegisterUserWithExistingEmail(String username,String email, String password) {
         LOGGER.info("TestCase 05:  Register User with existing email Test Case is Started");
         test.info("Starting  Register User with existing email test");
         LoginPage loginPage = new LoginPage(driver);
@@ -83,7 +83,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test(enabled = true,priority = 5,dataProvider = "registrationData",dataProviderClass = TestData.class )
-    public void  contactUsForm(String username,String email) {
+    public void  contactUsForm(String username,String email, String password) {
         LOGGER.info("Test Case 6: Contact Us Form Test Case is Started");
         test.info("Starting  Test Case 6: Contact Us Form Test Case is Started");
         LoginPage loginPage = new LoginPage(driver);
