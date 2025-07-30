@@ -1,0 +1,11 @@
+<extentreports>
+    <configuration>
+        <theme>standard</theme> <!-- Use 'dark' for dark theme -->
+        <encoding>utf-8</encoding>
+        <protocol>HTTPS</protocol>
+        <documentTitle>Bellavita Automation Report</documentTitle>
+        <reportName>Bellavita QA Test Report</reportName>
+        <timelineEnabled>true</timelineEnabled>
+        <timeStampFormat>MMM dd, yyyy HH:mm:ss</timeStampFormat>
+    </configuration>
+</extentreports>

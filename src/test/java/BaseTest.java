@@ -22,13 +22,13 @@ public class BaseTest {
     }
 
     @BeforeSuite
-    public void setupReport() {
+    public void setupReport() throws IOException {
         ExtentManager.initReports();
     }
 
     @BeforeMethod
     @Parameters("browser")
-    public void setUp( String browser, Method method,ITestResult result) {
+    public void setUp(@Optional("chrome") String browser, Method method,ITestResult result) {
         System.out.println("Running " + method.getName() + " on " + browser +
                 " | Thread: " + Thread.currentThread().getId());
 
