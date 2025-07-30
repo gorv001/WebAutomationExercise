@@ -21,8 +21,8 @@ public class ExtentManager {
         }
     }
 
-    public static void startTest(String testName) {
-        ExtentTest extentTest = extent.createTest(testName);
+    public static void startTest(String testName,String browser) {
+        ExtentTest extentTest = extent.createTest(testName).assignCategory(browser);
         test.set(extentTest);
     }
 

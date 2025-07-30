@@ -21,7 +21,11 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onTestStart(ITestResult result) {
-        ExtentManager.startTest(result.getMethod().getMethodName());
+        String browser = (String) result.getAttribute("browser"); // ✅ Read browser from result
+        if (browser == null) {
+            browser = "unknown"; // fallback
+        }
+        ExtentManager.startTest(result.getMethod().getMethodName(), browser);
     }
 
     @Override

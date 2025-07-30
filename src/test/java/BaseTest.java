@@ -28,7 +28,7 @@ public class BaseTest {
 
     @BeforeMethod
     @Parameters("browser")
-    public void setUp(String browser,Method method) {
+    public void setUp(String browser,Method method,ITestResult result) {
 //        WebDriverManager.chromedriver().setup();
 //
 //        ChromeOptions options = new ChromeOptions();
@@ -61,9 +61,10 @@ public class BaseTest {
 
         driver.manage().window().maximize();
         driver.get("https://www.automationexercise.com/");
+        result.setAttribute("browser", browser);
 
         // Start Extent test here
-        ExtentManager.startTest(method.getName());
+        ExtentManager.startTest(method.getName(),browser);
     }
 
     @AfterMethod

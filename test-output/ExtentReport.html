@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary"></span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Jul 30, 2025 05:15:46 pm</span></a>
+<a href="#"><span class="badge badge-primary">Jul 30, 2025 05:41:47 pm</span></a>
 </li>
 </ul>
 </div>
@@ -45,6 +45,11 @@
 <li class="nav-item dropdown" onclick="toggleView('test-view')">
 <a id="nav-test" class="dropdown-toggle" href="#">
 <span class="ico"><i class="fa fa-list"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('category-view')">
+<a id="nav-category" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-tag"></i></span>
 </a>
 </li>
 <li class="nav-item dropdown" onclick="toggleView('dashboard-view')">
@@ -72,17 +77,23 @@
 <a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
 </ul>
 </li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tag"></i></a>
+<ul id="tag-toggle" class="dropdown-menu dropdown-md p-v-0">
+<a class="dropdown-item" href="#">firefox</a><a class="dropdown-item" href="#">chrome</a>
+</ul>
+</li>
 </ul>
 </div>    <div class="test-list-wrapper scrollable">
       <ul class="test-list-item">
         <li class="test-item"  status="pass" test-id="1"
           author=""
-          tag=""
+          tag="chrome"
           device="">
           <div class="test-detail">
             <p class="name">testRegistration</p>
             <p class="text-sm">
-              <span>5:15:54 pm</span> / <span>00:00:00:000</span>
+              <span>5:41:51 pm</span> / <span>00:00:00:000</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -91,25 +102,26 @@
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-pass">testRegistration</h5>
-<span class='badge badge-success'>07.30.2025 5:15:54 pm</span>
-<span class='badge badge-danger'>07.30.2025 5:15:54 pm</span>
+<span class='badge badge-success'>07.30.2025 5:41:51 pm</span>
+<span class='badge badge-danger'>07.30.2025 5:41:51 pm</span>
 <span class='badge badge-default'>00:00:00:000</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
 </div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">chrome</span></div>
 </div>
 </div>          </div>
         </li>
         <li class="test-item"  status="pass" test-id="2"
           author=""
-          tag=""
+          tag="chrome"
           device="">
           <div class="test-detail">
             <p class="name">testRegistration</p>
             <p class="text-sm">
-              <span>5:15:54 pm</span> / <span>00:00:11:131</span>
+              <span>5:41:51 pm</span> / <span>00:00:10:583</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -118,14 +130,15 @@
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-pass">testRegistration</h5>
-<span class='badge badge-success'>07.30.2025 5:15:54 pm</span>
-<span class='badge badge-danger'>07.30.2025 5:16:05 pm</span>
-<span class='badge badge-default'>00:00:11:131</span>
+<span class='badge badge-success'>07.30.2025 5:41:51 pm</span>
+<span class='badge badge-danger'>07.30.2025 5:42:02 pm</span>
+<span class='badge badge-default'>00:00:10:583</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=2</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
 </div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">chrome</span></div>
 </div>
 </div><div class="detail-body mt-4">
 <table class="table table-sm">
@@ -133,21 +146,21 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>5:15:54 pm</td>
+        <td>5:41:51 pm</td>
         <td>
           Starting Registration test
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>5:16:05 pm</td>
+        <td>5:42:02 pm</td>
         <td>
           Registration was successful
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>5:16:05 pm</td>
+        <td>5:42:02 pm</td>
         <td>
           Test passed
         </td>
@@ -159,12 +172,12 @@
         </li>
         <li class="test-item"  status="pass" test-id="3"
           author=""
-          tag=""
+          tag="firefox"
           device="">
           <div class="test-detail">
             <p class="name">testRegistration</p>
             <p class="text-sm">
-              <span>5:15:55 pm</span> / <span>00:00:00:001</span>
+              <span>5:41:54 pm</span> / <span>00:00:00:000</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -173,41 +186,43 @@
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-pass">testRegistration</h5>
-<span class='badge badge-success'>07.30.2025 5:15:55 pm</span>
-<span class='badge badge-danger'>07.30.2025 5:15:55 pm</span>
-<span class='badge badge-default'>00:00:00:001</span>
+<span class='badge badge-success'>07.30.2025 5:41:54 pm</span>
+<span class='badge badge-danger'>07.30.2025 5:41:54 pm</span>
+<span class='badge badge-default'>00:00:00:000</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=3</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
 </div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">firefox</span></div>
 </div>
 </div>          </div>
         </li>
-        <li class="test-item"  status="skip" test-id="4"
+        <li class="test-item"  status="pass" test-id="4"
           author=""
-          tag=""
+          tag="firefox"
           device="">
           <div class="test-detail">
             <p class="name">testRegistration</p>
             <p class="text-sm">
-              <span>5:15:55 pm</span> / <span>00:00:15:217</span>
-              <span class="badge skip-bg log float-right">Skip</span>
+              <span>5:41:54 pm</span> / <span>00:00:14:469</span>
+              <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
           <div class="test-contents d-none">
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-skip">testRegistration</h5>
-<span class='badge badge-success'>07.30.2025 5:15:55 pm</span>
-<span class='badge badge-danger'>07.30.2025 5:16:10 pm</span>
-<span class='badge badge-default'>00:00:15:217</span>
+<h5 class="test-status text-pass">testRegistration</h5>
+<span class='badge badge-success'>07.30.2025 5:41:54 pm</span>
+<span class='badge badge-danger'>07.30.2025 5:42:09 pm</span>
+<span class='badge badge-default'>00:00:14:469</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=4</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
 </div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">firefox</span></div>
 </div>
 </div><div class="detail-body mt-4">
 <table class="table table-sm">
@@ -215,16 +230,23 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>5:15:55 pm</td>
+        <td>5:41:54 pm</td>
         <td>
           Starting Registration test
         </td>
       </tr>
       <tr class="event-row">
-        <td><span class="badge log skip-bg">Skip</span></td>
-        <td>5:16:10 pm</td>
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>5:42:09 pm</td>
         <td>
-          Test skipped: java.lang.AssertionError: The registration is failed expected [true] but found [false]
+          Registration was successful
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>5:42:09 pm</td>
+        <td>
+          Test passed
         </td>
       </tr>
   </tbody>
@@ -234,12 +256,12 @@
         </li>
         <li class="test-item"  status="pass" test-id="5"
           author=""
-          tag=""
+          tag="chrome"
           device="">
           <div class="test-detail">
             <p class="name">testLogIn</p>
             <p class="text-sm">
-              <span>5:16:13 pm</span> / <span>00:00:00:001</span>
+              <span>5:42:06 pm</span> / <span>00:00:00:000</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -248,25 +270,26 @@
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-pass">testLogIn</h5>
-<span class='badge badge-success'>07.30.2025 5:16:13 pm</span>
-<span class='badge badge-danger'>07.30.2025 5:16:13 pm</span>
-<span class='badge badge-default'>00:00:00:001</span>
+<span class='badge badge-success'>07.30.2025 5:42:06 pm</span>
+<span class='badge badge-danger'>07.30.2025 5:42:06 pm</span>
+<span class='badge badge-default'>00:00:00:000</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=5</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
 </div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">chrome</span></div>
 </div>
 </div>          </div>
         </li>
         <li class="test-item"  status="pass" test-id="6"
           author=""
-          tag=""
+          tag="chrome"
           device="">
           <div class="test-detail">
             <p class="name">testLogIn</p>
             <p class="text-sm">
-              <span>5:16:13 pm</span> / <span>00:00:06:595</span>
+              <span>5:42:06 pm</span> / <span>00:00:03:527</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -275,14 +298,15 @@
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-pass">testLogIn</h5>
-<span class='badge badge-success'>07.30.2025 5:16:13 pm</span>
-<span class='badge badge-danger'>07.30.2025 5:16:20 pm</span>
-<span class='badge badge-default'>00:00:06:595</span>
+<span class='badge badge-success'>07.30.2025 5:42:06 pm</span>
+<span class='badge badge-danger'>07.30.2025 5:42:09 pm</span>
+<span class='badge badge-default'>00:00:03:527</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=6</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
 </div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">chrome</span></div>
 </div>
 </div><div class="detail-body mt-4">
 <table class="table table-sm">
@@ -290,21 +314,21 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>5:16:13 pm</td>
+        <td>5:42:06 pm</td>
         <td>
           Starting LogoIn test
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>5:16:20 pm</td>
+        <td>5:42:09 pm</td>
         <td>
           LogIn was successful
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>5:16:20 pm</td>
+        <td>5:42:09 pm</td>
         <td>
           Test passed
         </td>
@@ -316,12 +340,12 @@
         </li>
         <li class="test-item"  status="pass" test-id="7"
           author=""
-          tag=""
+          tag="chrome"
           device="">
           <div class="test-detail">
-            <p class="name">testRegistration</p>
+            <p class="name">testLogInWithInCorrectCredentials</p>
             <p class="text-sm">
-              <span>5:16:15 pm</span> / <span>00:00:00:000</span>
+              <span>5:42:14 pm</span> / <span>00:00:00:000</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -329,42 +353,44 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">testRegistration</h5>
-<span class='badge badge-success'>07.30.2025 5:16:15 pm</span>
-<span class='badge badge-danger'>07.30.2025 5:16:15 pm</span>
+<h5 class="test-status text-pass">testLogInWithInCorrectCredentials</h5>
+<span class='badge badge-success'>07.30.2025 5:42:14 pm</span>
+<span class='badge badge-danger'>07.30.2025 5:42:14 pm</span>
 <span class='badge badge-default'>00:00:00:000</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=7</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
 </div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">chrome</span></div>
 </div>
 </div>          </div>
         </li>
-        <li class="test-item"  status="pass" test-id="8"
+        <li class="test-item"  status="skip" test-id="8"
           author=""
-          tag=""
+          tag="chrome"
           device="">
           <div class="test-detail">
-            <p class="name">testRegistration</p>
+            <p class="name">testLogInWithInCorrectCredentials</p>
             <p class="text-sm">
-              <span>5:16:15 pm</span> / <span>00:00:14:433</span>
-              <span class="badge pass-bg log float-right">Pass</span>
+              <span>5:42:14 pm</span> / <span>00:00:01:181</span>
+              <span class="badge skip-bg log float-right">Skip</span>
             </p>
           </div>
           <div class="test-contents d-none">
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">testRegistration</h5>
-<span class='badge badge-success'>07.30.2025 5:16:15 pm</span>
-<span class='badge badge-danger'>07.30.2025 5:16:30 pm</span>
-<span class='badge badge-default'>00:00:14:433</span>
+<h5 class="test-status text-skip">testLogInWithInCorrectCredentials</h5>
+<span class='badge badge-success'>07.30.2025 5:42:14 pm</span>
+<span class='badge badge-danger'>07.30.2025 5:42:15 pm</span>
+<span class='badge badge-default'>00:00:01:181</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=8</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
 </div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">chrome</span></div>
 </div>
 </div><div class="detail-body mt-4">
 <table class="table table-sm">
@@ -372,23 +398,24 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>5:16:15 pm</td>
+        <td>5:42:14 pm</td>
         <td>
-          Starting Registration test
+          Starting LogoIn with incorrect credentials test
         </td>
       </tr>
       <tr class="event-row">
-        <td><span class="badge log pass-bg">Pass</span></td>
-        <td>5:16:30 pm</td>
+        <td><span class="badge log skip-bg">Skip</span></td>
+        <td>5:42:15 pm</td>
         <td>
-          Registration was successful
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log pass-bg">Pass</span></td>
-        <td>5:16:30 pm</td>
-        <td>
-          Test passed
+          Test skipped: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//p[contains(text(),'password is incorrect')]"}
+  (Session info: chrome=138.0.7204.169)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.20.0', revision: '866c76ca80'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.15'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [05d5bdbe4bd883cb8aca738c9a69dafa, findElement {value=//p[contains(text(),'password is incorrect')], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 138.0.7204.169, chrome: {chromedriverVersion: 138.0.7204.183 (e90faf484dd..., userDataDir: C:\Users\GOURAV~1.KUM\AppDa...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58484}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58484/devtoo..., se:cdpVersion: 138.0.7204.169, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 05d5bdbe4bd883cb8aca738c9a69dafa
         </td>
       </tr>
   </tbody>
@@ -398,12 +425,12 @@
         </li>
         <li class="test-item"  status="pass" test-id="9"
           author=""
-          tag=""
+          tag="firefox"
           device="">
           <div class="test-detail">
-            <p class="name">testLogInWithInCorrectCredentials</p>
+            <p class="name">testLogIn</p>
             <p class="text-sm">
-              <span>5:16:30 pm</span> / <span>00:00:00:000</span>
+              <span>5:42:16 pm</span> / <span>00:00:00:000</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -411,26 +438,27 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">testLogInWithInCorrectCredentials</h5>
-<span class='badge badge-success'>07.30.2025 5:16:30 pm</span>
-<span class='badge badge-danger'>07.30.2025 5:16:30 pm</span>
+<h5 class="test-status text-pass">testLogIn</h5>
+<span class='badge badge-success'>07.30.2025 5:42:16 pm</span>
+<span class='badge badge-danger'>07.30.2025 5:42:16 pm</span>
 <span class='badge badge-default'>00:00:00:000</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=9</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
 </div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">firefox</span></div>
 </div>
 </div>          </div>
         </li>
         <li class="test-item"  status="pass" test-id="10"
           author=""
-          tag=""
+          tag="firefox"
           device="">
           <div class="test-detail">
-            <p class="name">testLogInWithInCorrectCredentials</p>
+            <p class="name">testLogIn</p>
             <p class="text-sm">
-              <span>5:16:30 pm</span> / <span>00:00:02:800</span>
+              <span>5:42:16 pm</span> / <span>00:00:04:854</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -438,15 +466,16 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">testLogInWithInCorrectCredentials</h5>
-<span class='badge badge-success'>07.30.2025 5:16:30 pm</span>
-<span class='badge badge-danger'>07.30.2025 5:16:33 pm</span>
-<span class='badge badge-default'>00:00:02:800</span>
+<h5 class="test-status text-pass">testLogIn</h5>
+<span class='badge badge-success'>07.30.2025 5:42:16 pm</span>
+<span class='badge badge-danger'>07.30.2025 5:42:21 pm</span>
+<span class='badge badge-default'>00:00:04:854</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=10</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
 </div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">firefox</span></div>
 </div>
 </div><div class="detail-body mt-4">
 <table class="table table-sm">
@@ -454,21 +483,21 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>5:16:30 pm</td>
+        <td>5:42:16 pm</td>
         <td>
-          Starting LogoIn with incorrect credentials test
+          Starting LogoIn test
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>5:16:33 pm</td>
+        <td>5:42:21 pm</td>
         <td>
-          LogInWithInCorrectCredentials was successful
+          LogIn was successful
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>5:16:33 pm</td>
+        <td>5:42:21 pm</td>
         <td>
           Test passed
         </td>
@@ -480,12 +509,12 @@
         </li>
         <li class="test-item"  status="pass" test-id="11"
           author=""
-          tag=""
+          tag="chrome"
           device="">
           <div class="test-detail">
-            <p class="name">testLogIn</p>
+            <p class="name">testLogInWithInCorrectCredentials</p>
             <p class="text-sm">
-              <span>5:16:36 pm</span> / <span>00:00:00:000</span>
+              <span>5:42:19 pm</span> / <span>00:00:00:000</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -493,42 +522,44 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">testLogIn</h5>
-<span class='badge badge-success'>07.30.2025 5:16:36 pm</span>
-<span class='badge badge-danger'>07.30.2025 5:16:36 pm</span>
+<h5 class="test-status text-pass">testLogInWithInCorrectCredentials</h5>
+<span class='badge badge-success'>07.30.2025 5:42:19 pm</span>
+<span class='badge badge-danger'>07.30.2025 5:42:19 pm</span>
 <span class='badge badge-default'>00:00:00:000</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=11</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
 </div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">chrome</span></div>
 </div>
 </div>          </div>
         </li>
-        <li class="test-item"  status="pass" test-id="12"
+        <li class="test-item"  status="skip" test-id="12"
           author=""
-          tag=""
+          tag="chrome"
           device="">
           <div class="test-detail">
-            <p class="name">testLogIn</p>
+            <p class="name">testLogInWithInCorrectCredentials</p>
             <p class="text-sm">
-              <span>5:16:36 pm</span> / <span>00:00:07:793</span>
-              <span class="badge pass-bg log float-right">Pass</span>
+              <span>5:42:19 pm</span> / <span>00:00:01:050</span>
+              <span class="badge skip-bg log float-right">Skip</span>
             </p>
           </div>
           <div class="test-contents d-none">
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">testLogIn</h5>
-<span class='badge badge-success'>07.30.2025 5:16:36 pm</span>
-<span class='badge badge-danger'>07.30.2025 5:16:44 pm</span>
-<span class='badge badge-default'>00:00:07:793</span>
+<h5 class="test-status text-skip">testLogInWithInCorrectCredentials</h5>
+<span class='badge badge-success'>07.30.2025 5:42:19 pm</span>
+<span class='badge badge-danger'>07.30.2025 5:42:20 pm</span>
+<span class='badge badge-default'>00:00:01:050</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=12</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
 </div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">chrome</span></div>
 </div>
 </div><div class="detail-body mt-4">
 <table class="table table-sm">
@@ -536,23 +567,24 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>5:16:36 pm</td>
+        <td>5:42:19 pm</td>
         <td>
-          Starting LogoIn test
+          Starting LogoIn with incorrect credentials test
         </td>
       </tr>
       <tr class="event-row">
-        <td><span class="badge log pass-bg">Pass</span></td>
-        <td>5:16:44 pm</td>
+        <td><span class="badge log skip-bg">Skip</span></td>
+        <td>5:42:20 pm</td>
         <td>
-          LogIn was successful
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log pass-bg">Pass</span></td>
-        <td>5:16:44 pm</td>
-        <td>
-          Test passed
+          Test skipped: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//p[contains(text(),'password is incorrect')]"}
+  (Session info: chrome=138.0.7204.169)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.20.0', revision: '866c76ca80'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.15'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [cd943b4050c74a423837612b2ad9b631, findElement {value=//p[contains(text(),'password is incorrect')], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 138.0.7204.169, chrome: {chromedriverVersion: 138.0.7204.183 (e90faf484dd..., userDataDir: C:\Users\GOURAV~1.KUM\AppDa...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58603}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58603/devtoo..., se:cdpVersion: 138.0.7204.169, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: cd943b4050c74a423837612b2ad9b631
         </td>
       </tr>
   </tbody>
@@ -562,12 +594,12 @@
         </li>
         <li class="test-item"  status="pass" test-id="13"
           author=""
-          tag=""
+          tag="chrome"
           device="">
           <div class="test-detail">
-            <p class="name">testLogOut</p>
+            <p class="name">testLogInWithInCorrectCredentials</p>
             <p class="text-sm">
-              <span>5:16:42 pm</span> / <span>00:00:00:000</span>
+              <span>5:42:26 pm</span> / <span>00:00:00:000</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -575,26 +607,27 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">testLogOut</h5>
-<span class='badge badge-success'>07.30.2025 5:16:42 pm</span>
-<span class='badge badge-danger'>07.30.2025 5:16:42 pm</span>
+<h5 class="test-status text-pass">testLogInWithInCorrectCredentials</h5>
+<span class='badge badge-success'>07.30.2025 5:42:26 pm</span>
+<span class='badge badge-danger'>07.30.2025 5:42:26 pm</span>
 <span class='badge badge-default'>00:00:00:000</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=13</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
 </div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">chrome</span></div>
 </div>
 </div>          </div>
         </li>
         <li class="test-item"  status="pass" test-id="14"
           author=""
-          tag=""
+          tag="chrome"
           device="">
           <div class="test-detail">
-            <p class="name">testLogOut</p>
+            <p class="name">testLogInWithInCorrectCredentials</p>
             <p class="text-sm">
-              <span>5:16:42 pm</span> / <span>00:00:08:497</span>
+              <span>5:42:26 pm</span> / <span>00:00:02:433</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -602,15 +635,16 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">testLogOut</h5>
-<span class='badge badge-success'>07.30.2025 5:16:42 pm</span>
-<span class='badge badge-danger'>07.30.2025 5:16:51 pm</span>
-<span class='badge badge-default'>00:00:08:497</span>
+<h5 class="test-status text-pass">testLogInWithInCorrectCredentials</h5>
+<span class='badge badge-success'>07.30.2025 5:42:26 pm</span>
+<span class='badge badge-danger'>07.30.2025 5:42:28 pm</span>
+<span class='badge badge-default'>00:00:02:433</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=14</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
 </div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">chrome</span></div>
 </div>
 </div><div class="detail-body mt-4">
 <table class="table table-sm">
@@ -618,21 +652,21 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>5:16:42 pm</td>
+        <td>5:42:26 pm</td>
         <td>
-          Starting LogOut test
+          Starting LogoIn with incorrect credentials test
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>5:16:51 pm</td>
+        <td>5:42:28 pm</td>
         <td>
-          LogOut was successful
+          LogInWithInCorrectCredentials was successful
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>5:16:51 pm</td>
+        <td>5:42:28 pm</td>
         <td>
           Test passed
         </td>
@@ -644,12 +678,12 @@
         </li>
         <li class="test-item"  status="pass" test-id="15"
           author=""
-          tag=""
+          tag="firefox"
           device="">
           <div class="test-detail">
             <p class="name">testLogInWithInCorrectCredentials</p>
             <p class="text-sm">
-              <span>5:16:49 pm</span> / <span>00:00:00:000</span>
+              <span>5:42:28 pm</span> / <span>00:00:00:000</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -658,25 +692,26 @@
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-pass">testLogInWithInCorrectCredentials</h5>
-<span class='badge badge-success'>07.30.2025 5:16:49 pm</span>
-<span class='badge badge-danger'>07.30.2025 5:16:49 pm</span>
+<span class='badge badge-success'>07.30.2025 5:42:28 pm</span>
+<span class='badge badge-danger'>07.30.2025 5:42:28 pm</span>
 <span class='badge badge-default'>00:00:00:000</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=15</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
 </div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">firefox</span></div>
 </div>
 </div>          </div>
         </li>
         <li class="test-item"  status="pass" test-id="16"
           author=""
-          tag=""
+          tag="firefox"
           device="">
           <div class="test-detail">
             <p class="name">testLogInWithInCorrectCredentials</p>
             <p class="text-sm">
-              <span>5:16:49 pm</span> / <span>00:00:01:612</span>
+              <span>5:42:28 pm</span> / <span>00:00:02:656</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -685,14 +720,15 @@
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-pass">testLogInWithInCorrectCredentials</h5>
-<span class='badge badge-success'>07.30.2025 5:16:49 pm</span>
-<span class='badge badge-danger'>07.30.2025 5:16:50 pm</span>
-<span class='badge badge-default'>00:00:01:612</span>
+<span class='badge badge-success'>07.30.2025 5:42:28 pm</span>
+<span class='badge badge-danger'>07.30.2025 5:42:31 pm</span>
+<span class='badge badge-default'>00:00:02:656</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=16</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
 </div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">firefox</span></div>
 </div>
 </div><div class="detail-body mt-4">
 <table class="table table-sm">
@@ -700,21 +736,21 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>5:16:49 pm</td>
+        <td>5:42:28 pm</td>
         <td>
           Starting LogoIn with incorrect credentials test
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>5:16:50 pm</td>
+        <td>5:42:31 pm</td>
         <td>
           LogInWithInCorrectCredentials was successful
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>5:16:50 pm</td>
+        <td>5:42:31 pm</td>
         <td>
           Test passed
         </td>
@@ -726,12 +762,12 @@
         </li>
         <li class="test-item"  status="pass" test-id="17"
           author=""
-          tag=""
+          tag="chrome"
           device="">
           <div class="test-detail">
             <p class="name">testLogOut</p>
             <p class="text-sm">
-              <span>5:16:55 pm</span> / <span>00:00:00:000</span>
+              <span>5:42:32 pm</span> / <span>00:00:00:000</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -740,25 +776,26 @@
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-pass">testLogOut</h5>
-<span class='badge badge-success'>07.30.2025 5:16:55 pm</span>
-<span class='badge badge-danger'>07.30.2025 5:16:55 pm</span>
+<span class='badge badge-success'>07.30.2025 5:42:32 pm</span>
+<span class='badge badge-danger'>07.30.2025 5:42:32 pm</span>
 <span class='badge badge-default'>00:00:00:000</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=17</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
 </div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">chrome</span></div>
 </div>
 </div>          </div>
         </li>
         <li class="test-item"  status="pass" test-id="18"
           author=""
-          tag=""
+          tag="chrome"
           device="">
           <div class="test-detail">
             <p class="name">testLogOut</p>
             <p class="text-sm">
-              <span>5:16:55 pm</span> / <span>00:00:05:614</span>
+              <span>5:42:32 pm</span> / <span>00:00:04:540</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -767,14 +804,15 @@
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-pass">testLogOut</h5>
-<span class='badge badge-success'>07.30.2025 5:16:55 pm</span>
-<span class='badge badge-danger'>07.30.2025 5:17:01 pm</span>
-<span class='badge badge-default'>00:00:05:614</span>
+<span class='badge badge-success'>07.30.2025 5:42:32 pm</span>
+<span class='badge badge-danger'>07.30.2025 5:42:37 pm</span>
+<span class='badge badge-default'>00:00:04:540</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=18</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
 </div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">chrome</span></div>
 </div>
 </div><div class="detail-body mt-4">
 <table class="table table-sm">
@@ -782,21 +820,21 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>5:16:55 pm</td>
+        <td>5:42:32 pm</td>
         <td>
           Starting LogOut test
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>5:17:01 pm</td>
+        <td>5:42:37 pm</td>
         <td>
           LogOut was successful
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>5:17:01 pm</td>
+        <td>5:42:37 pm</td>
         <td>
           Test passed
         </td>
@@ -808,12 +846,12 @@
         </li>
         <li class="test-item"  status="pass" test-id="19"
           author=""
-          tag=""
+          tag="firefox"
           device="">
           <div class="test-detail">
-            <p class="name">RegisterUserWithExistingEmail</p>
+            <p class="name">testLogOut</p>
             <p class="text-sm">
-              <span>5:16:58 pm</span> / <span>00:00:00:000</span>
+              <span>5:42:39 pm</span> / <span>00:00:00:000</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -821,26 +859,27 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">RegisterUserWithExistingEmail</h5>
-<span class='badge badge-success'>07.30.2025 5:16:58 pm</span>
-<span class='badge badge-danger'>07.30.2025 5:16:58 pm</span>
+<h5 class="test-status text-pass">testLogOut</h5>
+<span class='badge badge-success'>07.30.2025 5:42:39 pm</span>
+<span class='badge badge-danger'>07.30.2025 5:42:39 pm</span>
 <span class='badge badge-default'>00:00:00:000</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=19</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
 </div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">firefox</span></div>
 </div>
 </div>          </div>
         </li>
         <li class="test-item"  status="pass" test-id="20"
           author=""
-          tag=""
+          tag="firefox"
           device="">
           <div class="test-detail">
-            <p class="name">RegisterUserWithExistingEmail</p>
+            <p class="name">testLogOut</p>
             <p class="text-sm">
-              <span>5:16:58 pm</span> / <span>00:00:03:503</span>
+              <span>5:42:39 pm</span> / <span>00:00:06:384</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -848,15 +887,16 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">RegisterUserWithExistingEmail</h5>
-<span class='badge badge-success'>07.30.2025 5:16:58 pm</span>
-<span class='badge badge-danger'>07.30.2025 5:17:02 pm</span>
-<span class='badge badge-default'>00:00:03:503</span>
+<h5 class="test-status text-pass">testLogOut</h5>
+<span class='badge badge-success'>07.30.2025 5:42:39 pm</span>
+<span class='badge badge-danger'>07.30.2025 5:42:46 pm</span>
+<span class='badge badge-default'>00:00:06:384</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=20</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
 </div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">firefox</span></div>
 </div>
 </div><div class="detail-body mt-4">
 <table class="table table-sm">
@@ -864,21 +904,21 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>5:16:58 pm</td>
+        <td>5:42:39 pm</td>
         <td>
-          Starting  Register User with existing email test
+          Starting LogOut test
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>5:17:02 pm</td>
+        <td>5:42:46 pm</td>
         <td>
-          Register User with existing email was successful
+          LogOut was successful
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>5:17:02 pm</td>
+        <td>5:42:46 pm</td>
         <td>
           Test passed
         </td>
@@ -890,12 +930,12 @@
         </li>
         <li class="test-item"  status="pass" test-id="21"
           author=""
-          tag=""
+          tag="chrome"
           device="">
           <div class="test-detail">
             <p class="name">RegisterUserWithExistingEmail</p>
             <p class="text-sm">
-              <span>5:17:07 pm</span> / <span>00:00:00:000</span>
+              <span>5:42:42 pm</span> / <span>00:00:00:001</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -904,25 +944,26 @@
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-pass">RegisterUserWithExistingEmail</h5>
-<span class='badge badge-success'>07.30.2025 5:17:07 pm</span>
-<span class='badge badge-danger'>07.30.2025 5:17:07 pm</span>
-<span class='badge badge-default'>00:00:00:000</span>
+<span class='badge badge-success'>07.30.2025 5:42:42 pm</span>
+<span class='badge badge-danger'>07.30.2025 5:42:42 pm</span>
+<span class='badge badge-default'>00:00:00:001</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=21</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
 </div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">chrome</span></div>
 </div>
 </div>          </div>
         </li>
         <li class="test-item"  status="pass" test-id="22"
           author=""
-          tag=""
+          tag="chrome"
           device="">
           <div class="test-detail">
             <p class="name">RegisterUserWithExistingEmail</p>
             <p class="text-sm">
-              <span>5:17:07 pm</span> / <span>00:00:03:345</span>
+              <span>5:42:42 pm</span> / <span>00:00:05:261</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -931,14 +972,15 @@
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-pass">RegisterUserWithExistingEmail</h5>
-<span class='badge badge-success'>07.30.2025 5:17:07 pm</span>
-<span class='badge badge-danger'>07.30.2025 5:17:10 pm</span>
-<span class='badge badge-default'>00:00:03:345</span>
+<span class='badge badge-success'>07.30.2025 5:42:42 pm</span>
+<span class='badge badge-danger'>07.30.2025 5:42:47 pm</span>
+<span class='badge badge-default'>00:00:05:261</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=22</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
 </div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">chrome</span></div>
 </div>
 </div><div class="detail-body mt-4">
 <table class="table table-sm">
@@ -946,21 +988,21 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>5:17:07 pm</td>
+        <td>5:42:42 pm</td>
         <td>
           Starting  Register User with existing email test
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>5:17:10 pm</td>
+        <td>5:42:47 pm</td>
         <td>
           Register User with existing email was successful
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>5:17:10 pm</td>
+        <td>5:42:47 pm</td>
         <td>
           Test passed
         </td>
@@ -972,12 +1014,12 @@
         </li>
         <li class="test-item"  status="pass" test-id="23"
           author=""
-          tag=""
+          tag="firefox"
           device="">
           <div class="test-detail">
-            <p class="name">contactUsForm</p>
+            <p class="name">RegisterUserWithExistingEmail</p>
             <p class="text-sm">
-              <span>5:17:11 pm</span> / <span>00:00:00:000</span>
+              <span>5:42:55 pm</span> / <span>00:00:00:000</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -985,26 +1027,27 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">contactUsForm</h5>
-<span class='badge badge-success'>07.30.2025 5:17:11 pm</span>
-<span class='badge badge-danger'>07.30.2025 5:17:11 pm</span>
+<h5 class="test-status text-pass">RegisterUserWithExistingEmail</h5>
+<span class='badge badge-success'>07.30.2025 5:42:55 pm</span>
+<span class='badge badge-danger'>07.30.2025 5:42:55 pm</span>
 <span class='badge badge-default'>00:00:00:000</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=23</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
 </div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">firefox</span></div>
 </div>
 </div>          </div>
         </li>
         <li class="test-item"  status="pass" test-id="24"
           author=""
-          tag=""
+          tag="firefox"
           device="">
           <div class="test-detail">
-            <p class="name">contactUsForm</p>
+            <p class="name">RegisterUserWithExistingEmail</p>
             <p class="text-sm">
-              <span>5:17:11 pm</span> / <span>00:00:06:971</span>
+              <span>5:42:55 pm</span> / <span>00:00:03:077</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -1012,15 +1055,16 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">contactUsForm</h5>
-<span class='badge badge-success'>07.30.2025 5:17:11 pm</span>
-<span class='badge badge-danger'>07.30.2025 5:17:17 pm</span>
-<span class='badge badge-default'>00:00:06:971</span>
+<h5 class="test-status text-pass">RegisterUserWithExistingEmail</h5>
+<span class='badge badge-success'>07.30.2025 5:42:55 pm</span>
+<span class='badge badge-danger'>07.30.2025 5:42:58 pm</span>
+<span class='badge badge-default'>00:00:03:077</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=24</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
 </div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">firefox</span></div>
 </div>
 </div><div class="detail-body mt-4">
 <table class="table table-sm">
@@ -1028,21 +1072,21 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>5:17:11 pm</td>
+        <td>5:42:55 pm</td>
         <td>
-          Starting  Test Case 6: Contact Us Form Test Case is Started
+          Starting  Register User with existing email test
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>5:17:17 pm</td>
+        <td>5:42:58 pm</td>
         <td>
-          Test Case 6: Contact Us Form Test Case is Finished
+          Register User with existing email was successful
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>5:17:17 pm</td>
+        <td>5:42:58 pm</td>
         <td>
           Test passed
         </td>
@@ -1054,12 +1098,12 @@
         </li>
         <li class="test-item"  status="pass" test-id="25"
           author=""
-          tag=""
+          tag="chrome"
           device="">
           <div class="test-detail">
             <p class="name">contactUsForm</p>
             <p class="text-sm">
-              <span>5:17:15 pm</span> / <span>00:00:00:000</span>
+              <span>5:42:55 pm</span> / <span>00:00:00:000</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -1068,25 +1112,26 @@
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-pass">contactUsForm</h5>
-<span class='badge badge-success'>07.30.2025 5:17:15 pm</span>
-<span class='badge badge-danger'>07.30.2025 5:17:15 pm</span>
+<span class='badge badge-success'>07.30.2025 5:42:55 pm</span>
+<span class='badge badge-danger'>07.30.2025 5:42:55 pm</span>
 <span class='badge badge-default'>00:00:00:000</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=25</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
 </div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">chrome</span></div>
 </div>
 </div>          </div>
         </li>
         <li class="test-item"  status="pass" test-id="26"
           author=""
-          tag=""
+          tag="chrome"
           device="">
           <div class="test-detail">
             <p class="name">contactUsForm</p>
             <p class="text-sm">
-              <span>5:17:15 pm</span> / <span>00:00:05:982</span>
+              <span>5:42:55 pm</span> / <span>00:00:05:823</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -1095,14 +1140,15 @@
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-pass">contactUsForm</h5>
-<span class='badge badge-success'>07.30.2025 5:17:15 pm</span>
-<span class='badge badge-danger'>07.30.2025 5:17:21 pm</span>
-<span class='badge badge-default'>00:00:05:982</span>
+<span class='badge badge-success'>07.30.2025 5:42:55 pm</span>
+<span class='badge badge-danger'>07.30.2025 5:43:01 pm</span>
+<span class='badge badge-default'>00:00:05:823</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=26</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
 </div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">chrome</span></div>
 </div>
 </div><div class="detail-body mt-4">
 <table class="table table-sm">
@@ -1110,21 +1156,105 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>5:17:15 pm</td>
+        <td>5:42:55 pm</td>
         <td>
           Starting  Test Case 6: Contact Us Form Test Case is Started
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>5:17:21 pm</td>
+        <td>5:43:01 pm</td>
         <td>
           Test Case 6: Contact Us Form Test Case is Finished
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>5:17:21 pm</td>
+        <td>5:43:01 pm</td>
+        <td>
+          Test passed
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="27"
+          author=""
+          tag="firefox"
+          device="">
+          <div class="test-detail">
+            <p class="name">contactUsForm</p>
+            <p class="text-sm">
+              <span>5:43:06 pm</span> / <span>00:00:00:000</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">contactUsForm</h5>
+<span class='badge badge-success'>07.30.2025 5:43:06 pm</span>
+<span class='badge badge-danger'>07.30.2025 5:43:06 pm</span>
+<span class='badge badge-default'>00:00:00:000</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=27</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">firefox</span></div>
+</div>
+</div>          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="28"
+          author=""
+          tag="firefox"
+          device="">
+          <div class="test-detail">
+            <p class="name">contactUsForm</p>
+            <p class="text-sm">
+              <span>5:43:06 pm</span> / <span>00:00:06:274</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">contactUsForm</h5>
+<span class='badge badge-success'>07.30.2025 5:43:06 pm</span>
+<span class='badge badge-danger'>07.30.2025 5:43:12 pm</span>
+<span class='badge badge-default'>00:00:06:274</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=28</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">firefox</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>5:43:06 pm</td>
+        <td>
+          Starting  Test Case 6: Contact Us Form Test Case is Started
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>5:43:12 pm</td>
+        <td>
+          Test Case 6: Contact Us Form Test Case is Finished
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>5:43:12 pm</td>
         <td>
           Test passed
         </td>
@@ -1143,24 +1273,290 @@
 </div>
 <div class="test-content-detail"><div class="detail-body"></div></div>
 </div></div>
-<div class="container-fluid p-4 view dashboard-view">
+<div class="test-wrapper row view category-view attributes-view">
+<div class="test-list">
+<div class="test-list-tools">
+<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Category</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">2</span></a></li></ul>
+</div>
+<div class="test-list-wrapper scrollable">
+<ul class="test-list-item">
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>12</span>
+</span>
+<p class="name">firefox</p>
+<p class="duration text-sm">12 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>firefox</h4>
+<span status="pass" class='badge log pass-bg'>12 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:41:54 pm</td>
+<td>
+<a href="#" class="linked" test-id='3' id='3'>testRegistration</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:41:54 pm</td>
+<td>
+<a href="#" class="linked" test-id='4' id='4'>testRegistration</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:42:16 pm</td>
+<td>
+<a href="#" class="linked" test-id='9' id='9'>testLogIn</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:42:16 pm</td>
+<td>
+<a href="#" class="linked" test-id='10' id='10'>testLogIn</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:42:28 pm</td>
+<td>
+<a href="#" class="linked" test-id='15' id='15'>testLogInWithInCorrectCredentials</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:42:28 pm</td>
+<td>
+<a href="#" class="linked" test-id='16' id='16'>testLogInWithInCorrectCredentials</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:42:39 pm</td>
+<td>
+<a href="#" class="linked" test-id='19' id='19'>testLogOut</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:42:39 pm</td>
+<td>
+<a href="#" class="linked" test-id='20' id='20'>testLogOut</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:42:55 pm</td>
+<td>
+<a href="#" class="linked" test-id='23' id='23'>RegisterUserWithExistingEmail</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:42:55 pm</td>
+<td>
+<a href="#" class="linked" test-id='24' id='24'>RegisterUserWithExistingEmail</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:43:06 pm</td>
+<td>
+<a href="#" class="linked" test-id='27' id='27'>contactUsForm</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:43:06 pm</td>
+<td>
+<a href="#" class="linked" test-id='28' id='28'>contactUsForm</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>14</span>
+<span class='badge log badge-skip'>2</span>
+</span>
+<p class="name">chrome</p>
+<p class="duration text-sm">16 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>chrome</h4>
+<span status="pass" class='badge log pass-bg'>14 passed</span>
+<span status="skip" class='badge log badge-skip'>2 skipped</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:41:51 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='1'>testRegistration</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:41:51 pm</td>
+<td>
+<a href="#" class="linked" test-id='2' id='2'>testRegistration</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:42:06 pm</td>
+<td>
+<a href="#" class="linked" test-id='5' id='5'>testLogIn</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:42:06 pm</td>
+<td>
+<a href="#" class="linked" test-id='6' id='6'>testLogIn</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:42:14 pm</td>
+<td>
+<a href="#" class="linked" test-id='7' id='7'>testLogInWithInCorrectCredentials</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="skip">
+<td><span class="badge log skip-bg">Skip</span></td>
+<td>17:42:14 pm</td>
+<td>
+<a href="#" class="linked" test-id='8' id='8'>testLogInWithInCorrectCredentials</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:42:19 pm</td>
+<td>
+<a href="#" class="linked" test-id='11' id='11'>testLogInWithInCorrectCredentials</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="skip">
+<td><span class="badge log skip-bg">Skip</span></td>
+<td>17:42:19 pm</td>
+<td>
+<a href="#" class="linked" test-id='12' id='12'>testLogInWithInCorrectCredentials</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:42:26 pm</td>
+<td>
+<a href="#" class="linked" test-id='13' id='13'>testLogInWithInCorrectCredentials</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:42:26 pm</td>
+<td>
+<a href="#" class="linked" test-id='14' id='14'>testLogInWithInCorrectCredentials</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:42:32 pm</td>
+<td>
+<a href="#" class="linked" test-id='17' id='17'>testLogOut</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:42:32 pm</td>
+<td>
+<a href="#" class="linked" test-id='18' id='18'>testLogOut</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:42:42 pm</td>
+<td>
+<a href="#" class="linked" test-id='21' id='21'>RegisterUserWithExistingEmail</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:42:42 pm</td>
+<td>
+<a href="#" class="linked" test-id='22' id='22'>RegisterUserWithExistingEmail</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:42:55 pm</td>
+<td>
+<a href="#" class="linked" test-id='25' id='25'>contactUsForm</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>17:42:55 pm</td>
+<td>
+<a href="#" class="linked" test-id='26' id='26'>contactUsForm</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="test-content scrollable">
+<div class="test-content-detail">
+<div class="detail-body"></div>
+</div>
+</div>
+</div><div class="container-fluid p-4 view dashboard-view">
 <div class="row">
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Jul 30, 2025 05:15:46 pm</h3>
+<h3>Jul 30, 2025 05:41:47 pm</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Jul 30, 2025 05:17:21 pm</h3>
+<h3>Jul 30, 2025 05:43:13 pm</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-pass">Tests Passed</p>
-<h3>25</h3>
+<h3>26</h3>
 </div></div>
 </div>
 <div class="col-md-3">
@@ -1182,13 +1578,13 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='96%'>
-<b>25</b> tests passed
+<div><small data-tooltip='92%'>
+<b>26</b> tests passed
 </small>
 </div>
 <div>
 <small data-tooltip='0%'><b>0</b> tests failed,
-<b>1</b> skipped, <b data-tooltip='0%'>0</b> others
+<b>2</b> skipped, <b data-tooltip='0%'>0</b> others
 </small>
 </div>
 </div>
@@ -1205,10 +1601,10 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='63%'><b>24</b> events passed</small></div>
+<div><small data-tooltip='60%'><b>24</b> events passed</small></div>
 <div>
 <small data-tooltip='0%'><b>0</b> events failed,
-<b data-tooltip='%'>14</b> others
+<b data-tooltip='%'>16</b> others
 </small>
 </div>
 </div>
@@ -1224,10 +1620,35 @@
 </div></div>
 <script>
 var timeline = {
-"testRegistration":0,"testRegistration":11.131,"testRegistration":0.001,"testRegistration":15.217,"testLogIn":0.001,"testLogIn":6.595,"testRegistration":0,"testRegistration":14.433,"testLogInWithInCorrectCredentials":0,"testLogInWithInCorrectCredentials":2.8,"testLogIn":0,"testLogIn":7.793,"testLogOut":0,"testLogOut":8.497,"testLogInWithInCorrectCredentials":0,"testLogInWithInCorrectCredentials":1.612,"testLogOut":0,"testLogOut":5.614,"RegisterUserWithExistingEmail":0,"RegisterUserWithExistingEmail":3.503,"RegisterUserWithExistingEmail":0,"RegisterUserWithExistingEmail":3.345,"contactUsForm":0,"contactUsForm":6.971,"contactUsForm":0,"contactUsForm":5.982
+"testRegistration":0,"testRegistration":10.583,"testRegistration":0,"testRegistration":14.469,"testLogIn":0,"testLogIn":3.527,"testLogInWithInCorrectCredentials":0,"testLogInWithInCorrectCredentials":1.181,"testLogIn":0,"testLogIn":4.854,"testLogInWithInCorrectCredentials":0,"testLogInWithInCorrectCredentials":1.05,"testLogInWithInCorrectCredentials":0,"testLogInWithInCorrectCredentials":2.433,"testLogInWithInCorrectCredentials":0,"testLogInWithInCorrectCredentials":2.656,"testLogOut":0,"testLogOut":4.54,"testLogOut":0,"testLogOut":6.384,"RegisterUserWithExistingEmail":0.001,"RegisterUserWithExistingEmail":5.261,"RegisterUserWithExistingEmail":0,"RegisterUserWithExistingEmail":3.077,"contactUsForm":0,"contactUsForm":5.823,"contactUsForm":0,"contactUsForm":6.274
 };
 </script>
 <div class="row">
+<div class="col-lg-6 col-md-12 category-container">
+<div class="card">
+<div class="card-header"><p>Tags</p></div>
+<div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
+<thead><tr class="bg-gray"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>Others</th><th>Passed %</th></tr></thead><tbody>
+<tr>
+<td>firefox</td>
+<td>12</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>chrome</td>
+<td>14</td>
+<td>0</td>
+<td>2</td>
+<td>0</td>
+<td>87.5%</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
 <div class="col-lg-6 col-md-12 sysenv-container">
 <div class="card">
 <div class="card-header"><p>System/Environment</p></div>
@@ -1259,10 +1680,10 @@ var timeline = {
 <script>
 var statusGroup = {
 parentCount: 5,
-passParent: 25,
+passParent: 26,
 failParent: 0,
 warningParent: 0,
-skipParent: 1,
+skipParent: 2,
 childCount: 5,
 passChild: 0,
 failChild: 0,
@@ -1279,8 +1700,8 @@ eventsCount: 5,
 passEvents: 24,
 failEvents: 0,
 warningEvents: 0,
-skipEvents: 1,
-infoEvents: 13
+skipEvents: 2,
+infoEvents: 14
 };
 </script>        </div>
       </div>
