@@ -28,15 +28,8 @@ public class BaseTest {
 
     @BeforeMethod
     @Parameters("browser")
-    public void setUp(String browser,Method method,ITestResult result) {
-//        WebDriverManager.chromedriver().setup();
-//
-//        ChromeOptions options = new ChromeOptions();
-//        if (System.getenv("CI") != null) {
-//            options.addArguments("--headless=new", "--no-sandbox", "--disable-gpu", "--disable-dev-shm-usage");
-//        }
-//
-//        driver = new ChromeDriver(options);
+    public void setUp(@Optional("chrome") String browser, Method method,ITestResult result) {
+
         if (browser.equalsIgnoreCase("chrome")) {
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
