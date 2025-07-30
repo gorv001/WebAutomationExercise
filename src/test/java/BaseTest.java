@@ -1,32 +1,32 @@
+import com.aventstack.extentreports.ExtentTest;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
-
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 import java.lang.reflect.Method;
+import java.io.IOException;
 
 public class BaseTest {
     protected WebDriver driver;
-    protected static ExtentReports extent;
-    protected static ExtentTest test;
+
+    public WebDriver getDriver() {
+        return driver;
+    }
 
     @BeforeSuite
     public void setupReport() {
-        extent = ExtentManager.getInstance();
+        ExtentManager.initReports();
     }
 
     @BeforeMethod
     public void setUp(Method method) {
         WebDriverManager.chromedriver().setup();
 
-        // Setup ChromeOptions for CI/CD (headless)
         ChromeOptions options = new ChromeOptions();
-        if (System.getenv("CI") != null) {  // Only for CI environments like GitHub Actions
+        if (System.getenv("CI") != null) {
             options.addArguments("--headless=new", "--no-sandbox", "--disable-gpu", "--disable-dev-shm-usage");
         }
 
@@ -34,22 +34,25 @@ public class BaseTest {
         driver.manage().window().maximize();
         driver.get("https://www.automationexercise.com/");
 
-        test = extent.createTest(method.getName());
+        // Start Extent test here
+        ExtentManager.startTest(method.getName());
     }
 
-    @AfterMethod(enabled = true)
+    @AfterMethod
     public void tearDown(ITestResult result) {
+        ExtentTest test = ExtentManager.getTest(); // Get test after startTest() is called
+
         if (test != null) {
-            switch (result.getStatus()) {
-                case ITestResult.FAILURE:
-                    test.fail(result.getThrowable());
-                    break;
-                case ITestResult.SUCCESS:
-                    test.pass("Test passed");
-                    break;
-                case ITestResult.SKIP:
-                    test.skip("Test skipped: " + result.getThrowable());
-                    break;
+            if (result.getStatus() == ITestResult.FAILURE) {
+                test.fail(result.getThrowable());
+
+                // Capture and attach screenshot
+                String screenshotPath = ScreenshotUtil.captureScreenshot(driver, result.getName());
+                test.addScreenCaptureFromPath(screenshotPath);
+            } else if (result.getStatus() == ITestResult.SUCCESS) {
+                test.pass("Test passed");
+            } else if (result.getStatus() == ITestResult.SKIP) {
+                test.skip("Test skipped: " + result.getThrowable());
             }
         }
 
@@ -60,6 +63,6 @@ public class BaseTest {
 
     @AfterSuite
     public void tearDownReport() {
-        extent.flush();
+        ExtentManager.flushReports();
     }
 }

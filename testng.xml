@@ -1,8 +1,14 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 <suite name="SimpleSuite">
+
+    <listeners>
+        <listener class-name="TestListener"/>
+    </listeners>
+
     <test name="LoginTests">
         <classes>
             <class name="LoginTest"/>
         </classes>
     </test>
+
 </suite>
