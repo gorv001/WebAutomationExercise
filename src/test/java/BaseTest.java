@@ -1,4 +1,5 @@
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.MediaEntityBuilder;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -44,11 +45,10 @@ public class BaseTest {
 
         if (test != null) {
             if (result.getStatus() == ITestResult.FAILURE) {
-                test.fail(result.getThrowable());
-
-                // Capture and attach screenshot
                 String screenshotPath = ScreenshotUtil.captureScreenshot(driver, result.getName());
-                test.addScreenCaptureFromPath(screenshotPath);
+
+                test.fail("Test Failed: " + result.getThrowable(),
+                        MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
             } else if (result.getStatus() == ITestResult.SUCCESS) {
                 test.pass("Test passed");
             } else if (result.getStatus() == ITestResult.SKIP) {

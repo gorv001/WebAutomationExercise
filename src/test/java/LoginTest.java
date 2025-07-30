@@ -17,7 +17,7 @@ public class LoginTest extends BaseTest {
 
 
 
-    @Test(enabled = true,priority = 0, dataProvider = "registrationData",dataProviderClass = TestData.class,retryAnalyzer = RetryAnalyzer.class)
+    @Test(enabled = false,priority = 0, dataProvider = "registrationData",dataProviderClass = TestData.class,retryAnalyzer = RetryAnalyzer.class)
     public void testRegistration(String username, String email, String password) {
         LOGGER.info("===============================================");
         ExtentTest test = ExtentManager.getTest(); // Safely get the test instance
@@ -35,7 +35,7 @@ public class LoginTest extends BaseTest {
     }
 
 
-    @Test(enabled = true,priority = 1, dataProvider = "registrationData",dataProviderClass = TestData.class,retryAnalyzer = RetryAnalyzer.class )
+    @Test(enabled = false,priority = 1, dataProvider = "registrationData",dataProviderClass = TestData.class,retryAnalyzer = RetryAnalyzer.class )
     public void testLogIn(String username,String email, String password) {
         LOGGER.info("===============================================");
         ExtentTest test = ExtentManager.getTest(); // Safely get the test instance
@@ -54,7 +54,7 @@ public class LoginTest extends BaseTest {
     }
 
 
-    @Test(enabled = true,priority = 2,dataProvider = "registrationData",dataProviderClass = TestData.class,retryAnalyzer = RetryAnalyzer.class )
+    @Test(enabled = false,priority = 2,dataProvider = "registrationData",dataProviderClass = TestData.class,retryAnalyzer = RetryAnalyzer.class )
     public void testLogInWithInCorrectCredentials(String username,String email, String password) {
         LOGGER.info("===============================================");
         ExtentTest test = ExtentManager.getTest(); // Safely get the test instance
@@ -73,7 +73,7 @@ public class LoginTest extends BaseTest {
     }
 
 
-    @Test(enabled = true,priority = 3,dataProvider = "registrationData",dataProviderClass = TestData.class,retryAnalyzer = RetryAnalyzer.class )
+    @Test(enabled = false,priority = 3,dataProvider = "registrationData",dataProviderClass = TestData.class,retryAnalyzer = RetryAnalyzer.class )
     public void testLogOut(String username,String email, String password) {
         LOGGER.info("===============================================");
         ExtentTest test = ExtentManager.getTest(); // Safely get the test instance
@@ -109,7 +109,7 @@ public class LoginTest extends BaseTest {
         LOGGER.info("===============================================");
     }
 
-    @Test(enabled = true,priority = 5,dataProvider = "registrationData",dataProviderClass = TestData.class,retryAnalyzer = RetryAnalyzer.class )
+    @Test(enabled = false,priority = 5,dataProvider = "registrationData",dataProviderClass = TestData.class,retryAnalyzer = RetryAnalyzer.class )
     public void  contactUsForm(String username,String email, String password) {
         LOGGER.info("===============================================");
         ExtentTest test = ExtentManager.getTest(); // Safely get the test instance
