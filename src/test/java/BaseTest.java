@@ -28,7 +28,7 @@ public class BaseTest {
 
     @BeforeMethod
     @Parameters("browser")
-    public void setUp(@Optional("chrome") String browser, Method method,ITestResult result) {
+    public void setUp(String browser, Method method,ITestResult result) {
         System.out.println("Running " + method.getName() + " on " + browser +
                 " | Thread: " + Thread.currentThread().getId());
 
