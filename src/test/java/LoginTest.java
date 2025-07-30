@@ -12,7 +12,7 @@ public class LoginTest extends BaseTest {
 
 
     private static final Logger LOGGER = LogManager.getLogger(LoginTest.class);
-    private final By signUpLoginButton = By.xpath("//a[@href='/login']");
+    private final By signUpLoginButton = By.xpath("//a[@href='/login2222']");
     private final By emailAlreadyExists = By.xpath("//p[contains(text(),'Email Address already exist!')]");
 
 
