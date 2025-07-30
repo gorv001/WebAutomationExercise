@@ -6,10 +6,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.apache.logging.log4j.Logger;
 
 
-
-
-
+import java.io.File;
 import java.time.Duration;
+import java.util.Objects;
 
 public class LoginPage {
 
@@ -251,7 +250,8 @@ public class LoginPage {
             waitUntilVisible(contactUsEmailInput).sendKeys(email);
             waitUntilVisible(contactUsSubjectInput).sendKeys("For Testing purposes");
             waitUntilVisible(contactUsMessageInput).sendKeys("This field is for automation test script");
-            waitUntilVisible(contactUsUploadFile).sendKeys("/src/test/java/resources/test.png");
+            File file = new File(Objects.requireNonNull(getClass().getClassLoader().getResource("test.png")).getFile());
+            waitUntilVisible(contactUsUploadFile).sendKeys(file.getAbsolutePath());
             waitUntilVisible(contactUsSubmit).click();
             Alert alert = driver.switchTo().alert();
             alert.accept();
