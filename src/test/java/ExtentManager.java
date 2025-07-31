@@ -1,6 +1,7 @@
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import com.aventstack.extentreports.reporter.configuration.Theme;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -15,11 +16,16 @@ public class ExtentManager {
         if (extent == null) {
             // Timestamp for unique report name
             String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-            String reportPath = System.getProperty("user.dir") + "/test-output/ExtentReport_" + timestamp + ".html";
+            String reportPath = System.getProperty("user.dir") + "/test-output/ExtentReport.html";
 
             ExtentSparkReporter spark = new ExtentSparkReporter(reportPath);
             spark.loadXMLConfig("src/test/resources/extent-config.xml"); // Load theme and display settings
 
+            spark.config().setDocumentTitle("Automation Test Report");
+            spark.config().setReportName("Web Automation Results");
+            spark.config().setTheme(Theme.DARK); // ⭐ If you changed theme
+            spark.config().setTimelineEnabled(true); // ⭐ Adds interactive timeline
+            spark.config().setEncoding("utf-8");
             extent = new ExtentReports();
             extent.attachReporter(spark);
 
