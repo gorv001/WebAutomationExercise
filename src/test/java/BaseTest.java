@@ -59,7 +59,7 @@ public class BaseTest {
         result.setAttribute("browser", browser);
 
         // Start Extent test here
-        ExtentManager.startTest(method.getName(),browser);
+//        ExtentManager.startTest(method.getName(),browser);
     }
 
     @AfterMethod
