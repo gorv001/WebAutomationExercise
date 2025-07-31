@@ -1,5 +1,6 @@
+package com.automationexercise;
+
 import com.aventstack.extentreports.MediaEntityBuilder;
-import com.aventstack.extentreports.Status;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;

@@ -1,3 +1,5 @@
+package com.automationexercise;
+
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;
 

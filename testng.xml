@@ -1,18 +1,18 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 <suite name="CrossBrowserSuite" parallel="tests" thread-count="2">
     <listeners>
-        <listener class-name="TestListener"/>
+        <listener class-name="com.automationexercise.TestListener"/>
     </listeners>
     <test name="ChromeTests">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="LoginTest"/>
+            <class name="com.automationexercise.LoginTest"/>
         </classes>
     </test>
     <test name="FirefoxTests">
         <parameter name="browser" value="firefox"/>
         <classes>
-            <class name="LoginTest"/>
+            <class name="com.automationexercise.LoginTest"/>
         </classes>
     </test>
 </suite>

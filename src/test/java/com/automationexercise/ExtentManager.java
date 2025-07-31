@@ -1,8 +1,12 @@
+package com.automationexercise;
+
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -43,7 +47,8 @@ public class ExtentManager {
     public static void startTest(String testName, String browser) {
         ExtentTest extentTest = extent.createTest(testName)
                 .assignCategory(browser)
-                .assignDevice(browser);
+                .assignCategory("Smoke Test")  // Add test category
+                .assignAuthor("Gourav Kumar");
         test.set(extentTest);
     }
 
@@ -54,6 +59,13 @@ public class ExtentManager {
     public static void flushReports() {
         if (extent != null) {
             extent.flush();
+            if (System.getenv("CI") == null) { // Only open locally, not in CI
+                try {
+                    Desktop.getDesktop().browse(new File("test-output/ExtentReport.html").toURI());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

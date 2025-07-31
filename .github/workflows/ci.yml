@@ -40,6 +40,21 @@ jobs:
           name: Extent-Report
           path: test-output/ExtentReport.html
 
+      - name: Generate Allure Report (Alternative)
+        if: always()
+        run: |
+          mkdir -p allure-results
+          cp -r test-output/* allure-results/ || true
+
+      - name: Upload Test Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results-${{ matrix.browser }}
+          path: |
+            test-output/**/*
+            screenshots/**/*
+            logs/**/*
 #      - name: Send Email with Extent Report
 #        if: always()
 #        uses: dawidd6/action-send-mail@v3

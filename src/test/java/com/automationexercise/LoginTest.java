@@ -1,3 +1,4 @@
+package com.automationexercise;
 
 import com.aventstack.extentreports.ExtentTest;
 import org.apache.logging.log4j.LogManager;

@@ -1,3 +1,5 @@
+package com.automationexercise;
+
 import org.testng.annotations.DataProvider;
 
 import java.util.Random;

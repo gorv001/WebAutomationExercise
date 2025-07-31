@@ -1,3 +1,5 @@
+package com.automationexercise;
+
 import org.apache.logging.log4j.LogManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -79,7 +81,7 @@ public class LoginPage {
             if (formText.contains("ENTER ACCOUNT INFORMATION")) {
                 LOGGER.info("ENTER ACCOUNT INFORMATION is visible");
             } else {
-                LOGGER.info("❌ ENTER ACCOUNT INFORMATION is visible");
+                LOGGER.error("❌ ENTER ACCOUNT INFORMATION is visible");
                 return;
             }
             driver.findElement(titleButton).click();
@@ -103,7 +105,7 @@ public class LoginPage {
             if (acountCreatedText.contains("ACCOUNT CREATED!")) {
                 LOGGER.info("🎉 ACCOUNT IS CREATED! for: " + username);
             }else {
-                LOGGER.info("❌ Acount creation failed for: " + username);
+                LOGGER.error("❌ Acount creation failed for: " + username);
             }
             waitUntilVisible(continueButton).click();
            verifyUserLogedIn();
@@ -111,7 +113,7 @@ public class LoginPage {
            verifyAcountDeletedText();
            waitUntilVisible(deleteContinueButton).click();
         } catch (Exception e) {
-            LOGGER.info("❗ Error during registration: " + e.getMessage());
+            LOGGER.error("❗ Error during registration: " + e.getMessage());
         }
     }
 
@@ -131,7 +133,7 @@ public class LoginPage {
             if(driver.findElement(deleteAcountText).isDisplayed()){
                 LOGGER.info("Account deleted text is visible");
             }else {
-                LOGGER.info("Account deleted text is not visible");
+                LOGGER.error("Account deleted text is not visible");
             }
 
         } catch (Exception e) {
@@ -145,7 +147,7 @@ public class LoginPage {
             if (deletebutton.isDisplayed()) {
                 driver.findElement(deleteAcountButton).click();
             } else {
-                LOGGER.info("Delete account button is not visible");
+                LOGGER.error("Delete account button is not visible");
             }
         }catch(Exception e){
             e.printStackTrace();
@@ -158,7 +160,7 @@ public class LoginPage {
             if(newUserSignUpButton.isDisplayed()){
                 LOGGER.info("You are on registration page");
             }else{
-                LOGGER.info("❌ You are not on registration page");
+                LOGGER.error("❌ You are not on registration page");
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -203,10 +205,8 @@ public class LoginPage {
         waitUntilVisible(loginEmailButton).sendKeys(email);
         waitUntilVisible(loginPasswordButton).sendKeys(password);
         waitUntilVisible(loginSubmitButton).click();
-
-
         }catch (Exception e) {
-            LOGGER.info("❌ Something went wrong...in login method");
+            LOGGER.error("❌ Something went wrong...in login method");
         }
 
     }
@@ -232,7 +232,7 @@ public class LoginPage {
                 return true;
 
             } else {
-                LOGGER.info("❌ Home page is not visible");
+                LOGGER.error("❌ Home page is not visible");
                 return false;
             }
 

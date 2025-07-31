@@ -1,6 +1,6 @@
 <extentreports>
     <configuration>
-        <theme>standard</theme> <!-- Use 'dark' for dark theme -->
+        <theme>dark</theme> <!-- Use 'dark' for dark theme -->
         <encoding>utf-8</encoding>
         <protocol>HTTPS</protocol>
         <documentTitle>Bellavita Automation Report</documentTitle>
