@@ -31,6 +31,7 @@ public class BaseTest {
     public void setUp(@Optional("chrome") String browser, Method method,ITestResult result) {
         System.out.println("Running " + method.getName() + " on " + browser +
                 " | Thread: " + Thread.currentThread().getId());
+//        ExtentManager.startTest(method.getName() + " - " + browser, browser);
 
         if (browser.equalsIgnoreCase("chrome")) {
             WebDriverManager.chromedriver().setup();
@@ -58,8 +59,8 @@ public class BaseTest {
         driver.get("https://www.automationexercise.com/");
         result.setAttribute("browser", browser);
 
-        // Start Extent test here
-//        ExtentManager.startTest(method.getName(),browser);
+
+
     }
 
     @AfterMethod

@@ -25,7 +25,7 @@ public class TestListener implements ITestListener {
         if (browser == null) {
             browser = "unknown"; // fallback
         }
-        ExtentManager.startTest(result.getMethod().getMethodName(), browser);
+        ExtentManager.startTest(result.getMethod().getMethodName() + " - " + browser, browser);
     }
 
     @Override
