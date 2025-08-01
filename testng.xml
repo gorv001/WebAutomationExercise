@@ -9,10 +9,10 @@
             <class name="com.automationexercise.LoginTest"/>
         </classes>
     </test>
-<!--    <test name="FirefoxTests">-->
-<!--        <parameter name="browser" value="firefox"/>-->
-<!--        <classes>-->
-<!--            <class name="com.automationexercise.LoginTest"/>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="FirefoxTests">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="com.automationexercise.LoginTest"/>
+        </classes>
+    </test>
 </suite>
