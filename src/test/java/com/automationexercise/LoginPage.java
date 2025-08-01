@@ -6,11 +6,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.apache.logging.log4j.Logger;
+import org.testng.Assert;
 
-
-import java.io.File;
 import java.time.Duration;
-import java.util.Objects;
 
 public class LoginPage {
 
@@ -46,23 +44,13 @@ public class LoginPage {
     private final By loginPasswordButton = By.name("password");
     private final By loginSubmitButton = By.xpath("//button[text()='Login']");
     private final By logoutButton = By.xpath("//a[@href='/logout']");
-    private final By homeButton = By.xpath("//a[@style='color: orange;']");
     private final By newUserSignUpText = By.xpath("//h2[text()='New User Signup!']");
     private final By acountHolderName = By.xpath("//i[@class='fa fa-user']/../b");
     private final By deleteAcountButton = By.xpath("//a[contains(text(),' Delete Account')]");
     private final By deleteAcountText = By.xpath("//h2/b[contains(text(),'Account Deleted!')]");
     private final By deleteContinueButton = By.xpath("//a[@data-qa='continue-button']");
     private final By verifyLoginToYourAcountText = By.xpath("//div[@class='login-form']/h2");
-    private final By contactUsButton = By.xpath("//a[@href='/contact_us']");
-    private final By getInTouchText = By.xpath("//div[@class='col-sm-12']/h2");
-    private final By contactUsNameInput = By.xpath("//input[@placeholder='Name']");
-    private final By contactUsEmailInput = By.xpath("//input[@name='email']");
-    private final By contactUsSubjectInput = By.xpath("//input[@name='subject']");
-    private final By contactUsMessageInput = By.id("message");
-    private final By contactUsUploadFile = By.xpath("//input[@name='upload_file']");
-    private final By contactUsSubmit = By.xpath("//input[@name='submit']");
-    private final By contactUsSubmitSuccessMessage = By.xpath("//div[@class='status alert alert-success']");
-    private final By contactUsHomeButton = By.xpath("//span[contains(text(),'Home')]");
+
 
 
     public LoginPage(WebDriver driver) {
@@ -70,121 +58,217 @@ public class LoginPage {
     }
 
     public void registerNewUser(String username, String email, String password) {
-            LOGGER.info(" Starting registration for:"  + username);
+        LOGGER.info("🚀 Starting registration for: {}", username);
+
         try {
             waitUntilVisible(signUpLoginButton).click();
             verifyNewUserSignUpPage();
-            driver.findElement(signUpNameField).sendKeys(username);
-            driver.findElement(emailInputField).sendKeys(email);
-            driver.findElement(signUpButton).click();
-            String formText = waitUntilVisible(formTextElement).getText();
+
+            waitUntilVisible(signUpNameField).sendKeys(username);
+            waitUntilVisible(emailInputField).sendKeys(email);
+            waitUntilVisible(signUpButton).click();
+
+            String formText = waitUntilVisible(formTextElement).getText().trim();
             if (formText.contains("ENTER ACCOUNT INFORMATION")) {
-                LOGGER.info("ENTER ACCOUNT INFORMATION is visible");
+                LOGGER.info("✅ 'ENTER ACCOUNT INFORMATION' is visible");
             } else {
-                LOGGER.error("❌ ENTER ACCOUNT INFORMATION is visible");
+                LOGGER.error("❌ 'ENTER ACCOUNT INFORMATION' text not found. Halting registration.");
                 return;
             }
-            driver.findElement(titleButton).click();
-            driver.findElement(passwordInput).sendKeys(password);
-            new Select(driver.findElement(dayDropdown)).selectByVisibleText("14");
-            new Select(driver.findElement(monthDropdown)).selectByValue("2");
-            new Select(driver.findElement(yearsDropdown)).selectByValue("1996");
+
+            // Fill basic info
+            waitUntilVisible(titleButton).click();
+            waitUntilVisible(passwordInput).sendKeys(password);
+            new Select(waitUntilVisible(dayDropdown)).selectByVisibleText("14");
+            new Select(waitUntilVisible(monthDropdown)).selectByValue("2");
+            new Select(waitUntilVisible(yearsDropdown)).selectByValue("1996");
+
+            // Optional checkboxes
             waitUntilVisible(newsletterCheck).click();
             waitUntilVisible(OfferOptinCheck).click();
+
+            // Address and contact info
             waitUntilVisible(first_nameInput).sendKeys(username.split(" ")[0]);
             waitUntilVisible(last_nameInput).sendKeys("Kumar");
             waitUntilVisible(companyInput).sendKeys("One Guardian");
             waitUntilVisible(address1Input).sendKeys("417 Udyog Vihar");
-            waitUntilVisible(address2Input).sendKeys("sector 20");
+            waitUntilVisible(address2Input).sendKeys("Sector 20");
             waitUntilVisible(stateInput).sendKeys("Haryana");
             waitUntilVisible(cityInput).sendKeys("Gurugram");
             waitUntilVisible(zipcodeInput).sendKeys("122008");
             waitUntilVisible(mobile_numberInput).sendKeys("9729222533");
+
             waitUntilVisible(createAccountButton).click();
-            String acountCreatedText = waitUntilVisible(acountCreatedButton).getText();
-            if (acountCreatedText.contains("ACCOUNT CREATED!")) {
-                LOGGER.info("🎉 ACCOUNT IS CREATED! for: " + username);
-            }else {
-                LOGGER.error("❌ Acount creation failed for: " + username);
+
+            String accountCreatedText = waitUntilVisible(acountCreatedButton).getText().trim();
+            if (accountCreatedText.contains("ACCOUNT CREATED!")) {
+                LOGGER.info("🎉 ACCOUNT CREATED successfully for: {}", username);
+            } else {
+                LOGGER.error("❌ Account creation failed for: {}", username);
+                return;
             }
+
             waitUntilVisible(continueButton).click();
-           verifyUserLogedIn();
-           deleteAcount();
-           verifyAcountDeletedText();
-           waitUntilVisible(deleteContinueButton).click();
+
+            // Post-registration verification and cleanup
+            verifyUserLogedIn();
+            deleteAcount();
+            verifyAcountDeletedText();
+            waitUntilVisible(deleteContinueButton).click();
+
+        } catch (TimeoutException e) {
+            LOGGER.error("⏳ Timeout occurred during registration: {}", e.getMessage());
+            throw new RuntimeException("Timeout during user registration", e);
         } catch (Exception e) {
-            LOGGER.error("❗ Error during registration: " + e.getMessage());
+            LOGGER.error("❗ Unexpected error during registration for {}: {}", username, e.getMessage(), e);
+            throw new RuntimeException("Unexpected error during registration", e);
         }
     }
+
 
     private void verifyUserLogedIn() {
         try {
-            WebElement AccountHolderName= waitUntilVisible(acountHolderName);
-            if(AccountHolderName.isDisplayed()){
-                LOGGER.info(" Logged in as "+AccountHolderName.getText());
+            LOGGER.info("🔍 Verifying if user is logged in...");
+            WebElement accountHolderNameElement = waitUntilVisible(acountHolderName);
+
+            if (accountHolderNameElement.isDisplayed()) {
+                String name = accountHolderNameElement.getText().trim();
+                LOGGER.info("✅ Logged in as: " + name);
+            } else {
+                LOGGER.error("❌ Account holder name element is not visible.");
+                throw new AssertionError("Account holder name is not displayed.");
             }
+
+        } catch (TimeoutException e) {
+            LOGGER.error("❌ Timeout while waiting for account holder name to appear", e);
+            throw new RuntimeException("Timeout while verifying user login", e);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            LOGGER.error("❌ Unexpected error while verifying login", e);
+            throw new RuntimeException("Unexpected error while verifying login", e);
         }
     }
+
 
     private void verifyAcountDeletedText() {
         try {
-            if(driver.findElement(deleteAcountText).isDisplayed()){
-                LOGGER.info("Account deleted text is visible");
-            }else {
-                LOGGER.error("Account deleted text is not visible");
+            LOGGER.info("🔍 Verifying 'Account Deleted' confirmation message...");
+            WebElement deletedText = waitUntilVisible(deleteAcountText);
+
+            if (deletedText.isDisplayed()) {
+                LOGGER.info("✅ 'Account Deleted' text is visible.");
+            } else {
+                LOGGER.error("❌ 'Account Deleted' text is not visible.");
+                throw new AssertionError("'Account Deleted' text not displayed");
             }
 
+        } catch (TimeoutException e) {
+            LOGGER.error("❌ Timeout waiting for 'Account Deleted' text", e);
+            throw new RuntimeException("Timeout while verifying 'Account Deleted' text", e);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            LOGGER.error("❌ Unexpected error during account deletion confirmation", e);
+            throw new RuntimeException("Unexpected error while verifying 'Account Deleted' text", e);
         }
     }
+
 
     private void deleteAcount() {
         try {
-            WebElement deletebutton = driver.findElement(deleteAcountButton);
-            if (deletebutton.isDisplayed()) {
-                driver.findElement(deleteAcountButton).click();
+            LOGGER.info("🔍 Attempting to delete account...");
+            WebElement deleteButton = waitUntilVisible(deleteAcountButton);
+
+            if (deleteButton.isDisplayed()) {
+                deleteButton.click();
+                LOGGER.info("✅ Delete account button clicked successfully.");
             } else {
-                LOGGER.error("Delete account button is not visible");
+                LOGGER.error("❌ Delete account button is not visible.");
+                throw new AssertionError("Delete account button not visible");
             }
-        }catch(Exception e){
-            e.printStackTrace();
+
+        } catch (TimeoutException e) {
+            LOGGER.error("❌ Timeout while waiting for Delete account button", e);
+            throw new RuntimeException("Delete account button not visible due to timeout", e);
+        } catch (Exception e) {
+            LOGGER.error("❌ Unexpected error occurred while attempting to delete account", e);
+            throw new RuntimeException("Unexpected error during account deletion", e);
         }
     }
+
 
     private void verifyNewUserSignUpPage() {
         try {
-            WebElement newUserSignUpButton = driver.findElement(newUserSignUpText);
-            if(newUserSignUpButton.isDisplayed()){
-                LOGGER.info("You are on registration page");
-            }else{
-                LOGGER.error("❌ You are not on registration page");
+            LOGGER.info("🔍 Verifying if 'New User Signup' section is visible...");
+            WebElement newUserSignUpTextElement = waitUntilVisible(newUserSignUpText);
+
+            if (newUserSignUpTextElement.isDisplayed()) {
+                LOGGER.info("✅ 'New User Signup' section is visible. You're on the registration page.");
+            } else {
+                LOGGER.error("❌ 'New User Signup' section is not displayed.");
+                throw new AssertionError("New User Signup text is not visible");
             }
+        } catch (TimeoutException e) {
+            LOGGER.error("❌ Timeout while waiting for 'New User Signup' section to be visible", e);
+            throw new RuntimeException("New User Signup section not visible due to timeout", e);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            LOGGER.error("❌ Unexpected error while verifying 'New User Signup' section", e);
+            throw new RuntimeException("Error verifying New User Signup page", e);
         }
     }
+
 
 
     public WebElement waitUntilVisible(By locator) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-        scrollToElement(locator);
-        return element;
-    }
-    public void registerNewUser(String username, String email) {
         try {
-            waitUntilVisible(signUpLoginButton).click();
-            verifyNewUserSignUpPage();
-            driver.findElement(signUpNameField).sendKeys(username);
-            driver.findElement(emailInputField).sendKeys(email);
-            driver.findElement(signUpButton).click();
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+            scrollToElement(locator);
+            LOGGER.info("✅ Element is visible: {}", locator);
+            return element;
+        } catch (TimeoutException e) {
+            LOGGER.error("❌ Timeout waiting for visibility of element: {}", locator);
+            throw new RuntimeException("Element not visible: " + locator, e);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            LOGGER.error("❌ Unexpected error while waiting for element: {}", locator, e);
+            throw new RuntimeException("Error during waitUntilVisible for: " + locator, e);
         }
     }
+
+    public void registerNewUser(String username, String email) {
+        try {
+            LOGGER.info("🔐 Starting user registration with username: {} and email: {}", username, email);
+
+            // Click the Sign Up/Login button
+            WebElement signUpLoginBtn = waitUntilVisible(signUpLoginButton);
+            Assert.assertTrue(signUpLoginBtn.isDisplayed(), "❌ SignUp/Login button not displayed");
+            signUpLoginBtn.click();
+
+            // Verify New User Sign Up section is visible
+            verifyNewUserSignUpPage();
+
+            // Enter user details
+            WebElement nameField = waitUntilVisible(signUpNameField);
+            WebElement emailField = waitUntilVisible(emailInputField);
+            Assert.assertTrue(nameField.isDisplayed() && emailField.isDisplayed(), "❌ Name or Email field not displayed");
+
+            nameField.sendKeys(username);
+            emailField.sendKeys(email);
+            LOGGER.info("✅ Entered name and email for sign-up");
+
+            // Click Sign Up button
+            WebElement signUpBtn = waitUntilVisible(signUpButton);
+            Assert.assertTrue(signUpBtn.isDisplayed(), "❌ Sign Up button not displayed");
+            signUpBtn.click();
+            LOGGER.info("✅ Clicked on Sign Up button");
+
+        } catch (TimeoutException e) {
+            LOGGER.error("⏳ Timeout while registering new user: {}", e.getMessage());
+            throw new RuntimeException("Timeout occurred during user registration", e);
+
+        } catch (Exception e) {
+            LOGGER.error("❌ Exception occurred while registering new user: {}", e.getMessage(), e);
+            throw new RuntimeException("Error during new user registration", e);
+        }
+    }
+
 
     public void scrollToElement(By locator) {
         WebElement element = driver.findElement(locator);
@@ -197,85 +281,89 @@ public class LoginPage {
     }
 
     public void logIn(String email, String password) {
-        try{
-        LOGGER.info(" Starting putting the loginCredentials:"  + email);
-        verifyHomePage();
-        waitUntilVisible(signUpLoginButton).click();
-        verifyLoginToYourAcountText();
-        waitUntilVisible(loginEmailButton).sendKeys(email);
-        waitUntilVisible(loginPasswordButton).sendKeys(password);
-        waitUntilVisible(loginSubmitButton).click();
-        }catch (Exception e) {
-            LOGGER.error("❌ Something went wrong...in login method");
-        }
+        try {
+            LOGGER.info("🔐 Starting login process for user: " + email);
 
+            // Verify home page
+            HomePage homePage = new HomePage(driver);
+            if (!homePage.verifyHomePage()) {
+                LOGGER.error("❌ Home page not loaded. Aborting login.");
+                ExtentManager.getTest().fail("❌ Home page not loaded. Cannot proceed with login.");
+                return;
+            }
+
+            // Click on Sign Up / Login
+            waitUntilVisible(signUpLoginButton).click();
+            LOGGER.info("➡️ Clicked on Sign Up / Login button");
+
+            // Verify login section is visible
+            verifyLoginToYourAcountText();
+
+            // Enter login credentials
+            LOGGER.info("📝 Entering email and password...");
+            waitUntilVisible(loginEmailButton).sendKeys(email);
+            waitUntilVisible(loginPasswordButton).sendKeys(password);
+
+            // Submit login
+            waitUntilVisible(loginSubmitButton).click();
+            LOGGER.info("✅ Submitted login form");
+
+
+        } catch (Exception e) {
+            LOGGER.error("❌ Exception occurred in logIn(): " + e.getMessage(), e);
+            ExtentManager.getTest().fail("❌ Login failed: " + e.getMessage());
+            throw new RuntimeException("Login failed", e);
+        }
     }
 
-    private void verifyLoginToYourAcountText() {
+    boolean isUserLoggedInSuccessfully() {
         try {
-        WebElement verifylogintoyourAcountText = waitUntilVisible(verifyLoginToYourAcountText);
-        if (verifylogintoyourAcountText.isDisplayed()) {
-        LOGGER.info(" Login to your acount text is visible");
-        }else {
-            LOGGER.info("Login to your acount text is not visible");
-        }
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+            LOGGER.info("🔎 Verifying if user is logged in successfully...");
 
-    public boolean verifyHomePage() {
-        try {
-            WebElement homePage = driver.findElement(homeButton);
-            if (homePage.isDisplayed()) {
-                LOGGER.info(" Home page is visible successfully");
+            // Replace 'logoutButton' with the actual post-login element locator
+            WebElement logoutElement = waitUntilVisible(logoutButton);  // timeout = 10 seconds
+
+            if (logoutElement.isDisplayed()) {
+                LOGGER.info("✅ User is logged in. Logout button is visible.");
                 return true;
-
             } else {
-                LOGGER.error("❌ Home page is not visible");
+                LOGGER.warn("⚠️ Logout button not displayed. Login may have failed.");
                 return false;
             }
 
         } catch (Exception e) {
-            e.getMessage();
+            LOGGER.error("❌ Login verification failed due to: " + e.getMessage());
+            return false;
         }
-        return false;
     }
 
-    public void contactUsForm(String name,String email) {
+
+
+    private void verifyLoginToYourAcountText() {
         try {
-            waitUntilVisible(contactUsButton).click();
-            verifyContactUsPage();
-            waitUntilVisible(contactUsNameInput).sendKeys(name);
-            waitUntilVisible(contactUsEmailInput).sendKeys(email);
-            waitUntilVisible(contactUsSubjectInput).sendKeys("For Testing purposes");
-            waitUntilVisible(contactUsMessageInput).sendKeys("This field is for automation test script");
-            File file = new File(Objects.requireNonNull(getClass().getClassLoader().getResource("test.png")).getFile());
-            waitUntilVisible(contactUsUploadFile).sendKeys(file.getAbsolutePath());
-            waitUntilVisible(contactUsSubmit).click();
-            Alert alert = driver.switchTo().alert();
-            alert.accept();
-           if(waitUntilVisible(contactUsSubmitSuccessMessage).isDisplayed()){
-               LOGGER.info(" Contact us form is submitted successfully");
-           }else{
-               LOGGER.info(" Contact us form is not submited");
-           }
-           waitUntilVisible(contactUsHomeButton).click();
-           verifyHomePage();
+            LOGGER.info("🔎 Verifying 'Login to your account' text visibility...");
+
+            WebElement loginTextElement = waitUntilVisible(verifyLoginToYourAcountText); // timeout = 10 seconds
+
+            if (loginTextElement != null && loginTextElement.isDisplayed()) {
+                LOGGER.info("✅ 'Login to your account' text is visible.");
+            } else {
+                LOGGER.warn("⚠️ 'Login to your account' text is not visible or not displayed.");
+                throw new AssertionError("'Login to your account' text is not visible.");
+            }
+
+        } catch (TimeoutException e) {
+            LOGGER.error("❌ Timed out waiting for 'Login to your account' text to appear.", e);
+            throw new RuntimeException("Login text not visible in expected time.");
 
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            LOGGER.error("❌ Exception occurred while verifying login text: " + e.getMessage(), e);
+            throw new RuntimeException("Failed to verify login text.", e);
         }
     }
 
-    private void verifyContactUsPage() {
-        WebElement getInTouchTextButton = driver.findElement(getInTouchText);
-        if(getInTouchTextButton.isDisplayed()){
-            LOGGER.info(" Contact us page is visible");
-        }else {
-            LOGGER.info(" Contact us page is not visible");
-        }
-    }
+
+
 }
 
 

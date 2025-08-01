@@ -1,6 +1,7 @@
 package com.automationexercise;
 
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.MediaEntityBuilder;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -62,7 +63,7 @@ public class BaseTest {
 
     }
 
-    @AfterMethod
+    @AfterMethod(enabled = true)
     public void tearDown(ITestResult result) {
         ExtentTest test = ExtentManager.getTest(); // Get test after startTest() is called
 

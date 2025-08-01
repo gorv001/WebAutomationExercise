@@ -5,7 +5,7 @@ import org.testng.annotations.DataProvider;
 import java.util.Random;
 
 public class TestData {
-    public static  String email = "user" + new Random().nextInt(1000) + "@test.com";
+    public static  String email = "user" + new Random().nextInt(10000) + "@test.com";
     @DataProvider(name = "registrationData")
     public Object[][] getRegistrationData() {
         return new Object[][] {
